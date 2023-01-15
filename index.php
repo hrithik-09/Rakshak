@@ -23,7 +23,7 @@
 
 <body>
     <?php include 'partials/_dbconnect.php';?>
-    <?php include 'partials/_header2.php';?>
+    <?php include 'partials/_header.php';?>
     
 
     <!-- Slider starts here -->
