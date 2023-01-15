@@ -31,6 +31,7 @@ echo'
         <ul class="dropdown-menu">
         <li><a class="dropdown-item" href="../rakshak/patient/patient.php">Book Appointment</a></li>
         <li><a class="dropdown-item" href="bed.php">Bed Availability</a></li>
+        <li><a class="dropdown-item" href="query.php">Register Query</a></li>
         <li><hr class="dropdown-divider"></li>
         </ul>
         </li>

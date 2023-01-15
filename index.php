@@ -17,7 +17,6 @@
 }
         @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
     </style>
-    <link rel="stylesheet" href="partials/_header2.css">
     <title>Welcome to Rakshak - One for All</title>
 </head>
 
