@@ -7,13 +7,13 @@ if(!isset($_SESSION['adminSession']))
 }
 else if(isset($_SESSION['adminSession'])!="")
 {
- header("Location: ../index.php");
+ header("Location: ../adminlogin.php");
 }
 
 if(isset($_GET['logout']))
 {
  session_destroy();
  unset($_SESSION['adminSession']);
- header("Location: ../index.php");
+ header("Location: ../adminlogin.php");
 }
 ?>
