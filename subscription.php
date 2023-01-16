@@ -96,7 +96,7 @@
                 <li>No free appointment</li>
                 <li>Email support</li>
               </ul>
-              <button type="button" class="w-100 btn btn-lg btn-outline-primary">Proceed with free plan</button>
+              <a href="payment.php?planid=<?php echo '1' ?>" class="w-100 btn btn-lg btn-outline-primary">Proceed with free plan</a>
             </div>
           </div>
         </div>
@@ -112,7 +112,7 @@
                 <li>1 free appointment</li>
                 <li>Priority email support</li>
               </ul>
-              <button type="button" class="w-100 btn btn-lg btn-primary">Proceed and pay</button>
+              <a href="payment.php?planid=<?php echo '2' ?>" class="w-100 btn btn-lg btn-primary">Proceed and pay</a>
             </div>
           </div>
         </div>
@@ -128,7 +128,7 @@
                 <li>5 free appointments</li>
                 <li>Phone and email support</li>
               </ul>
-              <button type="button" class="w-100 btn btn-lg btn-primary">Contact us</button>
+              <a href="payment.php?planid=<?php echo '3' ?>" class="w-100 btn btn-lg btn-primary">Proceed and Pay</a>
             </div>
           </div>
         </div>
