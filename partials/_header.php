@@ -42,6 +42,7 @@ echo'
         if(isset($_SESSION['loggedin']) && $_SESSION['loggedin']==true){
           echo'
           <a href="patient/patient.php" class="btn btn-outline-light me-4">'.$_SESSION['useremail'].'</a>
+          <a href="/rakshak/subscription.php" class="btn btn-outline-light me-4">Subscription</a>
           <a href="partials/_logout.php" class="btn btn-outline-light">Logout</a>
           </form>';
         }

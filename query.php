@@ -71,7 +71,7 @@
     <div class="p-5 mb-4 bg-light rounded-3">
         <div class="container-fluid py-4">
             <h1 class="display-4">Welcome to query registration page</h1>
-            <p class="lead"> Register your queries to get it resolved by authorised doctors. You can also refer to similar queries posted by others. We value your privacy. Your identity will be remain a secret. </p>
+            <p class="lead"> Register your queries to get it resolved by authorised doctors. You can also refer to similar queries posted by others. We value your privacy. Your identity will remain a secret. </p>
             <hr class="my-4">
             <p>This is a medical advisory page. Spam / Advertising / Self-promote is not allowed. Do not post “wrong” information. Remain respectful of other members at all times.</p>
             <a class="btn btn-success btn-lg" href="#" role="button">Learn more</a>
@@ -113,6 +113,14 @@
                 <button type="submit" class="btn btn-success my-2">Submit</button>
             </form>
         </div>';
+    }
+    else{
+        echo '
+        <div class="container">
+        <h1 class="py-2">Start a Discussion</h1> 
+           <p class="lead">Only logged in users can post a question.</p>
+        </div>
+        ';
     }
 
     ?>
