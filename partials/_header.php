@@ -1,7 +1,11 @@
 <?php
 session_start();
+$uid="";
 if(isset($_SESSION['loggedin']) && $_SESSION['loggedin']==true)
-$bg="primary";
+{
+  $bg="primary";
+  $uid=$_SESSION['sno'];
+}
 else if(isset($_SESSION['doctorloggedin']) && $_SESSION['doctorloggedin']==true)
 $bg="danger";
 else if(isset($_SESSION['adminloggedin']) && $_SESSION['adminloggedin']==true)
@@ -41,8 +45,14 @@ echo'
         </ul>';
         if(isset($_SESSION['loggedin']) && $_SESSION['loggedin']==true){
           echo'
-          <a href="patient/patient.php" class="btn btn-outline-light me-4">'.$_SESSION['useremail'].'</a>
-          <a href="/rakshak/subscription.php" class="btn btn-outline-light me-4">Subscription</a>
+          <a href="patient/patient.php" class="btn btn-outline-light me-4">'.$_SESSION['useremail'].'</a>';
+          $sql="SELECT * FROM subscription WHERE userid = '$uid'";
+          $result = mysqli_query($conn, $sql);
+          $numRows = mysqli_num_rows($result);
+          if ($numRows==0) {
+          echo '<a href="/rakshak/subscription.php" class="btn btn-outline-light me-4">Subscription</a>';
+          }
+          echo'
           <a href="partials/_logout.php" class="btn btn-outline-light">Logout</a>
           </form>';
         }

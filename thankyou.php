@@ -1,3 +1,8 @@
+<?php
+include 'partials/_dbconnect.php';
+session_start();
+$uid=$_SESSION['sno'];
+?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -78,7 +83,15 @@
 
   <div class="px-4 py-5 my-2 text-center">
     <img class="d-block mx-auto mb-4" src="img/logo.png" alt="" width="150" height="150">
-    <h1 class="display-5 fw-bold">Thank You for purchasing our subscription</h1>
+
+    <h1 class="display-5 fw-bold">
+    <?php 
+      $status=$_GET['payment_status'];
+      if($status=='Failed')
+        echo 'Oops!! Transaction Failed..Try Again </h1>';
+        else
+        echo 'Thank You for purchasing our subscriptionx </h1>';
+    ?>
     <?php
     include 'instamojo/Instamojo.php';
     $api = new Instamojo\Instamojo('test_e21d0a5d3ec617ae448058512e0', 'test_ef151341507d0d4a62bffaa9dd8','https://test.instamojo.com/api/1.1/');
@@ -90,6 +103,24 @@
         print('Error: ' . $e->getMessage());
     }
     ?>
+    <?php
+    $planid=0;
+    if($response['purpose']=="Basic")
+    {
+      $planid=1;
+    }
+    elseif($response['purpose']=="Individual")
+    {
+      $planid=2;
+    }
+    elseif($response['purpose']=="Family")
+    {
+      $planid=3;
+    }
+    $sql = "INSERT INTO `subscription` ( `userid`, `pid`, `planid`,`dos`) VALUES ('$uid', '$payid','$planid',current_timestamp())";
+    $result = mysqli_query($conn, $sql);
+    
+    ?>
     <div class="col-lg-6 mx-auto">
       <p class="lead mb-4">Please find the details of your purchase below.</p>
       <table class="table table-hover table-bordered">
@@ -98,6 +129,10 @@
     <tr>
       <td>Plan Purchased</td>
       <td><?php echo $response['purpose']; ?></td>
+    </tr>
+    <tr>
+      <td>Payment Id: </td>
+      <td><?php echo $payid;?></td>
     </tr>
     <tr>
       <td>Payee Name</td>
