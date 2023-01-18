@@ -64,6 +64,12 @@ if (isset($_POST['submit'])) {
                             </a>
                         </li>
                         <li class="nav-item">
+                            <a class="nav-link" href="doctor.php">
+                                <span data-feather="user" class="align-text-bottom"></span>
+                                Manage doctor
+                            </a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link" href="hospitalbed.php">
                                 <span data-feather="inbox" class="align-text-bottom"></span>
                                 Bed Status
