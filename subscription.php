@@ -19,51 +19,17 @@
     .container {
       max-width: 960px;
     }
-
     .pricing-header {
-      max-width: 700px;
+  max-width: 700px;
+}
+    *{
+      font-family: 'Roboto', sans-serif;
     }
-
-    .bd-placeholder-img {
-      font-size: 1.125rem;
-      text-anchor: middle;
-      -webkit-user-select: none;
-      -moz-user-select: none;
-      user-select: none;
-    }
-
-    @media (min-width: 768px) {
-      .bd-placeholder-img-lg {
-        font-size: 3.5rem;
-      }
-    }
-
-    
-    
-
-
-    .nav-scroller {
-      position: relative;
-      z-index: 2;
-      height: 2.75rem;
-      overflow-y: hidden;
-    }
-
-    .nav-scroller .nav {
-      display: flex;
-      flex-wrap: nowrap;
-      padding-bottom: 1rem;
-      margin-top: -1px;
-      overflow-x: auto;
-      text-align: center;
-      white-space: nowrap;
-      -webkit-overflow-scrolling: touch;
-    }
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
   </style>
 
 
   <!-- Custom styles for this template -->
-  <link href="pricing.css" rel="stylesheet">
 </head>
 
 <body>
@@ -87,16 +53,16 @@
         <div class="col">
           <div class="card mb-4 rounded-3 shadow-sm">
             <div class="card-header py-3">
-              <h4 class="my-0 fw-normal">Free</h4>
+              <h4 class="my-0 fw-normal">Basic</h4>
             </div>
             <div class="card-body">
-              <h1 class="card-title pricing-card-title">Rs.0<small class="text-muted fw-light">/mo</small></h1>
+              <h1 class="card-title pricing-card-title">Rs.10<small class="text-muted fw-light">/mo</small></h1>
               <ul class="list-unstyled mt-3 mb-4">
                 <li>1 question per month</li>
                 <li>No free appointment</li>
                 <li>Email support</li>
               </ul>
-              <a href="payment.php?planid=<?php echo '1' ?>" class="w-100 btn btn-lg btn-outline-primary">Proceed with free plan</a>
+              <a href="payment.php?planid=<?php echo '1' ?>" class="w-100 btn btn-lg btn-outline-primary">Proceed with basic plan</a>
             </div>
           </div>
         </div>
@@ -140,7 +106,7 @@
 
   </div>
 
-  <div class="container-fluid fixed-bottom bg-dark text-light mb-0">
+  <div class="container-fluid bg-dark fixed-bottom text-light mb-0">
 			<p class="text-center mb-0">
 				copyright &copy; 2021 Rakshak | All rights reserved
 			</p>
