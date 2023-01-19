@@ -1,0 +1,65 @@
+
+*{
+    line-height: 1.8rem;
+}
+h1,h2,h3,h4{
+    text-align: center;
+    line-height: 1.6rem;
+    color: brown;
+}
+
+p{
+    line-height: 2rem;
+}
+h2{
+    line-height: 1.5rem;
+}
+.parallax1{
+    background: url("https://healthmatters.nyp.org/wp-content/uploads/2020/03/Article-hero.jpg");
+    background-size: cover;
+    background-attachment: fixed;
+    height: 480px;
+   
+}
+.parallax2{
+    background: url("https://www.unicef.org/sites/default/files/styles/hero_desktop/public/covid-19-micron-variant-UN0500155_0.jpg?itok=oFuZu_oo");
+    background-size: cover;
+    background-attachment: fixed;
+    height: 480px;
+   
+
+}
+.parallax3{
+    background: url("https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Infektionsschutzzentrum_im_Rautenstrauch-Joest-Museum%2C_K%C3%B6ln-6313_%28cropped%29.jpg/1024px-Infektionsschutzzentrum_im_Rautenstrauch-Joest-Museum%2C_K%C3%B6ln-6313_%28cropped%29.jpg");
+    background-size: cover;
+    background-attachment: fixed;
+    height: 450px;
+   
+}
+.parallax4{
+    background: url("https://www.worldbank.org/content/dam/photos/780x439/2021/nov-3/PHvaccines.jpg");
+     background-size: cover;
+    background-attachment: fixed;
+    height: 480px;
+    
+}
+.parallax5{
+    background: url("https://images.moneycontrol.com/static-mcnews/2021/05/COVID-19-Vaccine-770x433.jpg?impolicy=website&width=770&height=431");
+    background-size: cover;
+    background-attachment: fixed;
+    height: 480px;
+   
+}
+.parallax6{
+    background: url("https://sf.gov/sites/default/files/styles/default/public/2021-11/GettyImages-1316865376.jpg?itok=6SS3orpr");
+    background-size: cover;
+    background-attachment: fixed;
+    height: 450px;
+   
+}
+.treatment ul{
+    list-style-type:none;
+}
+/* .hivsymptons{
+    line-height: 0.5rem;
+} */

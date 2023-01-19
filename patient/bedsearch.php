@@ -21,7 +21,7 @@ $userRow2 = mysqli_fetch_array($res2);
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.104.2">
-    <title>Appoinment List</title>
+    <title>Hospital List</title>
     <!-- Bootstrap Core CSS -->
     <link href="assets/css/bootstrap.min.css" rel="stylesheet">
     <link href="dashboard.css" rel="stylesheet">
@@ -128,15 +128,16 @@ $userRow2 = mysqli_fetch_array($res2);
                         <?php
                         $s = $_GET['search'];
                         $n=1;
-                        $res = mysqli_query($con, "SELECT * FROM hospital WHERE match(hospitalName,hospitalAddress) against('$s')");
+                        $res = mysqli_query($con, "SELECT * FROM hospital JOIN hospital2 WHERE Reg_no=hospitalId AND match(`Hospital_Name`,`Address`,`State`,`District`,`Town`) against('$s')");
                         $numRows = mysqli_num_rows($res);
                         if ($numRows > 0) {
                             while ($userRow = mysqli_fetch_array($res)) {
                                 echo "<tbody>";
                                 echo "<tr>";
-                                echo "<td>" . $userRow['hospitalName'] . "</td>";
-                                echo "<td>" . $userRow['hospitalAddress'] . "</td>";
-                                echo "<td>" . $userRow['hospitalContact'] . "</td>";
+                                
+                                echo '<td><a href="details.php?hid='.$userRow['Reg_no'].'">'. $userRow['Hospital_Name'] .'</a></td>';
+                                echo "<td>" . $userRow['Address'] .", ".$userRow['District']. "</td>";
+                                echo "<td>" . $userRow['Telephone_no'] . "</td>";
                                 echo "<td>" . $userRow['generalbed'] . "</td>";
                                 echo "<td>" . $userRow['privatebedac'] . "</td>";
                                 echo "<td>" . $userRow['privatebednonac'] . "</td>";
