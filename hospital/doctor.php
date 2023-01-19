@@ -2,10 +2,10 @@
 session_start();
 include_once '../assets/conn/dbconnect.php';
 if (!isset($_SESSION['hospitalSession'])) {
-    header("Location: ../index.php");
+    header("Location: index.php");
 }
 $usersession = $_SESSION['hospitalSession'];
-$res = mysqli_query($con, "SELECT * FROM `hospital` WHERE hospitalId='$usersession'");
+$res = mysqli_query($con, "SELECT * FROM `hospital` WHERE Reg_no='$usersession'");
 $userRow = mysqli_fetch_array($res, MYSQLI_ASSOC);
 
 ?>

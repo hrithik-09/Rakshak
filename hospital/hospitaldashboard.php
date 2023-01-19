@@ -5,22 +5,25 @@ if (!isset($_SESSION['hospitalSession'])) {
     header("Location: ../index.php");
 }
 $usersession = $_SESSION['hospitalSession'];
-$res = mysqli_query($con, "SELECT * FROM `hospital` WHERE hospitalId='$usersession'");
+$res = mysqli_query($con, "SELECT * FROM `hospital` WHERE Reg_no='$usersession'");
 $userRow = mysqli_fetch_array($res, MYSQLI_ASSOC);
+$res2 = mysqli_query($con, "SELECT * FROM `hospital2` WHERE hospitalId='$usersession'");
+$userRow2 = mysqli_fetch_array($res2, MYSQLI_ASSOC);
+
 
 ?>
 <!-- update -->
 <?php
 if (isset($_POST['submit'])) {
     //variables
-    $hospitalId = $_POST['hospitalId'];
+    $Reg_no = $_POST['Reg_no'];
     $password = $_POST['password'];
-    $contact = $_POST['hospitalContact'];
-    $email = $_POST['hospitalEmail'];
-    $address = $_POST['hospitalAddress'];
-    $res = mysqli_query($con, "UPDATE hospital SET hospitalId='$hospitalId', password='$password', hospitalContact='$contact',hospitalEmail='$email',hospitalAddress='$address' WHERE hospitalId='$usersession'");
+    $contact = $_POST['Mobile_no'];
+    $email = $_POST['Email'];
+    $address = $_POST['Address'];
+    $res = mysqli_query($con, "UPDATE hospital SET Reg_no='$Reg_no', Password='$password', Mobile_no='$contact',Email='$email',Address='$address' WHERE Reg_no='$usersession'");
     // $userRow=mysqli_fetch_array($res);
-    $_SESSION['hospitalSession'] = $hospitalId;
+    $_SESSION['hospitalSession'] = $Reg_no;
     header('Location: hospitaldashboard.php');
 }
 ?>
@@ -111,7 +114,7 @@ if (isset($_POST['submit'])) {
                             <img src="assets/img/1.jpg" class="card-img-top" style="height: 225px; width: 220px; " alt="image for this category">
                             <div class="card-body">
                                 <h5 class="card-title">Hospital administrator</h5>
-                                <p class="card-text"><?php echo $userRow['hospitalName'] ?></p>
+                                <p class="card-text"><?php echo $userRow['Hospital_Name'] ?></p>
                                 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal">Change Credentials</button>
                             </div>
                         </div>
@@ -131,7 +134,7 @@ if (isset($_POST['submit'])) {
                                         <tbody>
                                             <tr>
                                                 <td>Login Id:</td>
-                                                <td><input type="text" class="form-control" name="hospitalId" value="<?php echo $usersession; ?>" /></td>
+                                                <td><input type="text" class="form-control" name="Reg_no" value="<?php echo $usersession; ?>" /></td>
                                             </tr>
                                             <tr>
                                                 <td>Password</td>
@@ -162,18 +165,21 @@ if (isset($_POST['submit'])) {
                     </div>
                 </div>
                 <?php
-                if ($userRow['Tgeneralbed'] == 0 && $userRow['Tprivatebednonac'] == 0 && $userRow['Tprivatebedac'] == 0 && $userRow['Ticu'] == 0 && $userRow['Tnicu'] == 0 && $userRow['Tventilator'] == 0)
+                if ($userRow2['Tgeneralbed'] == 0 && $userRow2['Tprivatebednonac'] == 0 && $userRow2['Tprivatebedac'] == 0 && $userRow2['Ticu'] == 0 && $userRow2['Tnicu'] == 0 && $userRow2['Tventilator'] == 0)
                     echo '<div class="alert alert-danger " role="alert">
 						<div>
 							Please update Total Bed strength Status to complete your profile. <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#myModal2">Update Status</button>
 						</div>
 					</div>';
                 else
+                {
+
                     echo '<div class="alert alert-danger " role="alert">
-						<div>
-							Click here to update total Bed strength Status. <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#myModal3">Update Status</button>
-						</div>
+                    <div>
+                    Click here to update total Bed strength Status. <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#myModal3">Update Status</button>
+                    </div>
 					</div>';
+                }
                 ?>
 
                 <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -190,32 +196,32 @@ if (isset($_POST['submit'])) {
                                         <tbody>
                                             <tr>
                                                 <td>Total General Bed:</td>
-                                                <td><input type="text" class="form-control" name="Tgeneralbed" value="<?php echo $userRow['Tgeneralbed']; ?>" /></td>
+                                                <td><input type="text" class="form-control" name="Tgeneralbed" value="<?php echo $userRow2['Tgeneralbed']; ?>" /></td>
                                             </tr>
                                             <tr>
                                             <tr>
                                                 <td>Total Private Bed (Non AC):</td>
-                                                <td><input type="text" class="form-control" name="Tprivatebednonac" value="<?php echo $userRow['Tprivatebednonac']; ?>" /></td>
+                                                <td><input type="text" class="form-control" name="Tprivatebednonac" value="<?php echo $userRow2['Tprivatebednonac']; ?>" /></td>
                                             </tr>
                                             <tr>
                                             <tr>
                                                 <td>Total Private Bed (AC):</td>
-                                                <td><input type="text" class="form-control" name="Tprivatebedac" value="<?php echo $userRow['Tprivatebedac']; ?>" /></td>
+                                                <td><input type="text" class="form-control" name="Tprivatebedac" value="<?php echo $userRow2['Tprivatebedac']; ?>" /></td>
                                             </tr>
                                             <tr>
                                             <tr>
                                                 <td>Total ICU Bed:</td>
-                                                <td><input type="text" class="form-control" name="Ticu" value="<?php echo $userRow['Ticu']; ?>" /></td>
+                                                <td><input type="text" class="form-control" name="Ticu" value="<?php echo $userRow2['Ticu']; ?>" /></td>
                                             </tr>
                                             <tr>
                                             <tr>
                                                 <td>Total NICU Bed:</td>
-                                                <td><input type="text" class="form-control" name="Tnicu" value="<?php echo $userRow['Tnicu']; ?>" /></td>
+                                                <td><input type="text" class="form-control" name="Tnicu" value="<?php echo $userRow2['Tnicu']; ?>" /></td>
                                             </tr>
                                             <tr>
                                             <tr>
                                                 <td>Total ventilators:</td>
-                                                <td><input type="text" class="form-control" name="Tventilator" value="<?php echo $userRow['Tventilator']; ?>" /></td>
+                                                <td><input type="text" class="form-control" name="Tventilator" value="<?php echo $userRow2['Tventilator']; ?>" /></td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -239,32 +245,32 @@ if (isset($_POST['submit'])) {
                                         <tbody>
                                             <tr>
                                                 <td>Total General Bed:</td>
-                                                <td><input type="text" class="form-control" name="Tgeneralbed" value="<?php echo $userRow['Tgeneralbed']; ?>" /></td>
+                                                <td><input type="text" class="form-control" name="Tgeneralbed" value="<?php echo $userRow2['Tgeneralbed']; ?>" /></td>
                                             </tr>
                                             <tr>
                                             <tr>
                                                 <td>Total Private Bed (Non AC):</td>
-                                                <td><input type="text" class="form-control" name="Tprivatebednonac" value="<?php echo $userRow['Tprivatebednonac']; ?>" /></td>
+                                                <td><input type="text" class="form-control" name="Tprivatebednonac" value="<?php echo $userRow2['Tprivatebednonac']; ?>" /></td>
                                             </tr>
                                             <tr>
                                             <tr>
                                                 <td>Total Private Bed (AC):</td>
-                                                <td><input type="text" class="form-control" name="Tprivatebedac" value="<?php echo $userRow['Tprivatebedac']; ?>" /></td>
+                                                <td><input type="text" class="form-control" name="Tprivatebedac" value="<?php echo $userRow2['Tprivatebedac']; ?>" /></td>
                                             </tr>
                                             <tr>
                                             <tr>
                                                 <td>Total ICU Bed:</td>
-                                                <td><input type="text" class="form-control" name="Ticu" value="<?php echo $userRow['Ticu']; ?>" /></td>
+                                                <td><input type="text" class="form-control" name="Ticu" value="<?php echo $userRow2['Ticu']; ?>" /></td>
                                             </tr>
                                             <tr>
                                             <tr>
                                                 <td>Total NICU Bed:</td>
-                                                <td><input type="text" class="form-control" name="Tnicu" value="<?php echo $userRow['Tnicu']; ?>" /></td>
+                                                <td><input type="text" class="form-control" name="Tnicu" value="<?php echo $userRow2['Tnicu']; ?>" /></td>
                                             </tr>
                                             <tr>
                                             <tr>
                                                 <td>Total ventilators:</td>
-                                                <td><input type="text" class="form-control" name="Tventilator" value="<?php echo $userRow['Tventilator']; ?>" /></td>
+                                                <td><input type="text" class="form-control" name="Tventilator" value="<?php echo $userRow2['Tventilator']; ?>" /></td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -281,23 +287,23 @@ if (isset($_POST['submit'])) {
                             <tbody>
                                 <tr>
                                     <td>Hospital Id</td>
-                                    <td><?php echo $userRow['hospitalId']; ?></td>
+                                    <td><?php echo $userRow['Reg_no']; ?></td>
                                 </tr>
                                 <tr>
                                     <td>Hospital Name</td>
-                                    <td><?php echo $userRow['hospitalName']; ?></td>
+                                    <td><?php echo $userRow['Hospital_Name']; ?></td>
                                 </tr>
                                 <tr>
                                     <td>Hospital Address</td>
-                                    <td><?php echo $userRow['hospitalAddress']; ?></td>
+                                    <td><?php echo $userRow['Address']." ".$userRow['Town']; ?></td>
                                 </tr>
                                 <tr>
                                     <td>Hospital Contact No.</td>
-                                    <td><?php echo $userRow['hospitalContact']; ?></td>
+                                    <td><?php echo $userRow['Mobile_No']; ?></td>
                                 </tr>
                                 <tr>
                                     <td>Hospital Email Id</td>
-                                    <td><?php echo $userRow['hospitalEmail']; ?></td>
+                                    <td><?php echo $userRow['Email']; ?></td>
                                 </tr>
                             </tbody>
                         </table>

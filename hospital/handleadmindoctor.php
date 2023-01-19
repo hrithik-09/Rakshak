@@ -1,8 +1,10 @@
 <?php
 $showError = "false";
+
 if($_SERVER["REQUEST_METHOD"] == "POST"){
     include_once '../assets/conn/dbconnect.php';
-
+    session_start();
+    $usersession = $_SESSION['hospitalSession'];
     $dob = mysqli_real_escape_string($con, $_POST['doctorDOB']);
     $doctorId=$_POST['doctorId'];
     $password=$_POST['password'];
@@ -13,8 +15,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     $address=$_POST['doctorAddress'];
     $phone=$_POST['doctorPhone'];
     $email=$_POST['doctorEmail'];
-    $sql = "INSERT INTO `doctor` (`password`,`doctorId`, `doctorFirstName`, `doctorLastName`, `doctorDepartment`, `doctorGender`, `doctorAddress`, `doctorPhone`, `doctorEmail`, `doctorDOB`)
-    VALUES ('$password' ,'$doctorId', '$fname', '$lname','$dept','$gender','$address','$phone','$email','$dob' ) ";
+    $sql = "INSERT INTO `doctor` (`password`,`doctorId`, `hid`,`doctorFirstName`, `doctorLastName`, `doctorDepartment`, `doctorGender`, `doctorAddress`, `doctorPhone`, `doctorEmail`, `doctorDOB`)
+    VALUES ('$password' ,'$doctorId','$usersession', '$fname', '$lname','$dept','$gender','$address','$phone','$email','$dob' ) ";
     $result = mysqli_query($con, $sql);
     if($result){
     $showAlert = true;

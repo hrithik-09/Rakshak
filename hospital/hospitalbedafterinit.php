@@ -3,10 +3,10 @@
 session_start();
 include_once '../assets/conn/dbconnect.php';
 if (!isset($_SESSION['hospitalSession'])) {
-    header("Location: ../index.php");
+    header("Location: index.php");
 }
 $usersession = $_SESSION['hospitalSession'];
-$res = mysqli_query($con, "SELECT * FROM `hospital` WHERE hospitalId='$usersession'");
+$res = mysqli_query($con, "SELECT * FROM `hospital2` WHERE hospitalId='$usersession'");
 $userRow = mysqli_fetch_array($res, MYSQLI_ASSOC);
 $g=$userRow['Tgeneralbed'];
 $h=$userRow['Tprivatebednonac'];
@@ -26,7 +26,7 @@ if (isset($_POST['submit'])) {
     $nicu = $_POST['Tnicu'];
     $ventilator = $_POST['Tventilator'];
 
-    $res = mysqli_query($con, "UPDATE hospital SET Tgeneralbed='$generalbed',generalbed=generalbed+($generalbed-$g), Tprivatebednonac='$privatebednonac',privatebednonac=privatebednonac+($privatebednonac-$h),Tprivatebedac='$privatebedac',privatebedac=privatebedac+($privatebedac-$i),Ticu='$icu',icu=icu+($icu-$j),Tnicu='$nicu',nicu=nicu+($nicu-$k),Tventilator='$ventilator',ventilator=ventilator+($ventilator-$l) WHERE hospitalId='$usersession'");
+    $res = mysqli_query($con, "UPDATE hospital2 SET Tgeneralbed='$generalbed',generalbed=generalbed+($generalbed-$g), Tprivatebednonac='$privatebednonac',privatebednonac=privatebednonac+($privatebednonac-$h),Tprivatebedac='$privatebedac',privatebedac=privatebedac+($privatebedac-$i),Ticu='$icu',icu=icu+($icu-$j),Tnicu='$nicu',nicu=nicu+($nicu-$k),Tventilator='$ventilator',ventilator=ventilator+($ventilator-$l) WHERE hospitalId='$usersession'");
     // $userRow=mysqli_fetch_array($res);
     header('Location: hospitalbed.php');
 }

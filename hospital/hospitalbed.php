@@ -5,7 +5,7 @@ if (!isset($_SESSION['hospitalSession'])) {
     header("Location: ../index.php");
 }
 $usersession = $_SESSION['hospitalSession'];
-$res = mysqli_query($con, "SELECT * FROM `hospital` WHERE hospitalId='$usersession'");
+$res = mysqli_query($con, "SELECT * FROM `hospital2` WHERE hospitalId='$usersession'");
 $userRow = mysqli_fetch_array($res, MYSQLI_ASSOC);
 
 ?>
@@ -20,7 +20,7 @@ if (isset($_POST['submit'])) {
     $nicu = $_POST['nicu'];
     $ventilator = $_POST['ventilator'];
 
-    $res = mysqli_query($con, "UPDATE hospital SET generalbed='$generalbed', privatebednonac='$privatebednonac',privatebedac='$privatebedac',icu='$icu',nicu='$nicu',ventilator='$ventilator' WHERE hospitalId='$usersession'");
+    $res = mysqli_query($con, "UPDATE hospital2 SET generalbed='$generalbed', privatebednonac='$privatebednonac',privatebedac='$privatebedac',icu='$icu',nicu='$nicu',ventilator='$ventilator' WHERE hospitalId='$usersession'");
     // $userRow=mysqli_fetch_array($res);
     header('Location: hospitalbed.php');
 }
@@ -62,6 +62,12 @@ if (isset($_POST['submit'])) {
                             <a class="nav-link" aria-current="page" href="hospitaldashboard.php">
                                 <span data-feather="file" class="align-text-bottom"></span>
                                 Dashboard
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="doctor.php">
+                                <span data-feather="user" class="align-text-bottom"></span>
+                                Manage doctor
                             </a>
                         </li>
                         <li class="nav-item">
