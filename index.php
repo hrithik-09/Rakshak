@@ -77,9 +77,9 @@
             <div class="card" style="width: 18rem; height:25rem;">
             <img src="img/card-'.$id. '.png" class="card-img-top" style="height: 214px;"alt="image for this category">
             <div class="card-body">
-            <h5 class="card-title"><a href="threadlist.php?catid=' . $id . '">' . $cat . '</a></h5>
+            <h5 class="card-title"><a href="'.$id.'.php">' . $cat . '</a></h5>
             <p class="card-text">' . substr($desc, 0, 90). '... </p>
-           <a href="threadlist.php?catid=' . $id . '" class="btn btn-primary">Learn more</a>
+           <a href="'.$id.'.php" class="btn btn-primary">Learn more</a>
            </div>
            </div>
            </div>';
@@ -104,9 +104,9 @@
            <div class="card" style="width: 18rem; height:25rem;">
            <img src="img/card-'.$id. '.png" class="card-img-top" style="height: 214px;"alt="image for this category">
            <div class="card-body">
-           <h5 class="card-title"><a href="threadlist.php?catid=' . $id . '">' . $cat . '</a></h5>
+           <h5 class="card-title"><a href="'.$id.'.php">' . $cat . '</a></h5>
            <p class="card-text">' . substr($desc, 0, 90). '... </p>
-           <a href="threadlist.php?catid=' . $id . '" class="btn btn-primary">Learn more</a>
+           <a href="'.$id.'.php" class="btn btn-primary">Learn more</a>
            </div>
            </div>
            </div>';

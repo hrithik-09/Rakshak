@@ -1,0 +1,51 @@
+body{
+    background-color: white;
+}
+.parallax1{
+
+    background: url("https://t3.ftcdn.net/jpg/03/09/32/16/360_F_309321673_0mGMOFnaXeMBUIORdeYe96mjShdCMRUC.jpg");
+    background-size: cover;
+    background-attachment: fixed;
+    height: 520px;
+
+}
+.parallax2{
+    background: url("https://www.shutterstock.com/image-vector/comparison-healthy-lung-asthmatic-illustration-260nw-1792263992.jpg");
+    background-size: cover;
+    background-attachment: fixed;
+   height: 450px;
+}
+.parallax3{
+    background: url("https://images.indianexpress.com/2019/06/asthma_759getty.jpg");
+    background-size: cover;
+    background-attachment: fixed;
+    height: 500px;
+
+}
+.parallax4{
+    background: url("https://www.singlecare.com/blog/wp-content/uploads/2022/03/Blog_032522_Natural_remedies_asthma.png");
+    background-size: cover;
+    background-attachment: fixed;
+    height: 500px;
+
+}
+h1{
+    text-align: center;
+    color: brown;
+}
+h3,h4{
+    line-height: 1.5rem;
+    text-align: center;
+    color: brown;
+}
+p{
+    line-height: 1.5rem;
+}
+table ,td ,th{
+    border: 0.7px solid;
+    border-collapse: collapse;
+    line-height: 1.7rem;
+}
+table{
+    width: 100%;
+}

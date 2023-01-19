@@ -1,0 +1,65 @@
+*{
+    line-height: 1.8rem;
+}
+h1,h2,h3,h4{
+    text-align: center;
+    line-height: 1.6rem;
+    color: brown;
+}
+p{
+    line-height: 2rem;
+}
+h2{
+    line-height: 1.5rem;
+}
+.parallax1{
+    background: url("https://c1.wallpaperflare.com/preview/809/782/364/sadness-depressed-woman-girl.jpg");
+    background-size: cover;
+    background-attachment: fixed;
+    height: 480px;
+   
+}
+.parallax2{
+    background: url("https://akpsi.org/wp-content/uploads/2020/08/AdobeStock_237753910-scaled.jpeg");
+    background-size: cover;
+    background-attachment: fixed;
+    height: 480px;
+
+}
+.parallax3{
+    background: url("https://images.hindustantimes.com/img/2022/03/01/1600x900/FMOCn9rXEAgvEJy_1646124405101_1646124455411.jpg");
+    background-size: cover;
+    background-attachment: fixed;
+    height: 450px;
+   
+}
+.parallax4{
+    background: url("https://i0.wp.com/psych2go.net/wp-content/uploads/2019/08/art-beautiful-colors-2697754.jpg?fit=640%2C427&ssl=1");
+     background-size: cover;
+    background-attachment: fixed;
+    height: 480px;
+   
+}
+.parallax5{
+    background: url("https://highfocuscenters.pyramidhealthcarepa.com/wp-content/uploads/2021/05/patient-in-treatment-for-depression.jpg");
+    background-size: cover;
+    background-attachment: fixed;
+    height: 480px;
+   
+}
+.parallax6{
+    background: url("https://successtms.com/wp-content/uploads/2019/01/depression_relapse_TMS-3.png");
+    background-size: cover;
+    background-attachment: fixed;
+    height: 480px;
+   
+}
+/* .treatment ul{
+    list-style-type:none;
+}  */
+/* .hivsymptons{
+    line-height: 0.5rem;
+} */
+.types ul{
+    line-height: 7rem;
+}
