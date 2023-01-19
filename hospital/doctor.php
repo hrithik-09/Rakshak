@@ -59,7 +59,7 @@ if (isset($_GET['delete'])) {
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" href="admindoctor.php">
+                            <a class="nav-link active" href="doctor.php">
                                 <span data-feather="user" class="align-text-bottom"></span>
                                 Manage doctor
                             </a>
@@ -195,7 +195,7 @@ if (isset($_GET['delete'])) {
                             </tr>
                         </thead>
                         <?php
-                        $result = mysqli_query($con, "SELECT * FROM doctor");
+                        $result = mysqli_query($con, "SELECT * FROM doctor WHERE hid='$usersession'");
                         while ($doctor = mysqli_fetch_array($result)) {
                             echo "<tbody>";
                             echo "<tr>";

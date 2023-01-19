@@ -9,7 +9,6 @@ if(isset($_SESSION['hospitalloggedin']) && $_SESSION['hospitalloggedin']==true){
 <head>
     <meta charset="UTF-8">
     <title>hospital Login</title>
-    <!-- <link rel="stylesheet" href="./style.css"> -->
 
 </head>
 <style>

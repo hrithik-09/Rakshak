@@ -24,6 +24,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     $sql = "INSERT INTO `hospital` (`Password`,`Reg_no`, `Hospital_Name`,`Accreditation`, `Address`, `State`, `District`, `Town`,`Pincode`,`Telephone_no`, `Mobile_no`,`Ambulance_no`,`helpline_no`,`Email`,`Website`)
     VALUES ('$password' ,'$hospitalId', '$name','$accreditation','$address','$state','$district','$town','$pincode','$phone','$mobile','$ambulance','$helpline','$email','$website') ";
     $result = mysqli_query($con, $sql);
+    $sql2 = "INSERT INTO `hospital2` (`hospitalId`) VALUES ('$hospitalId') ";
+    $result2 = mysqli_query($con, $sql2);
     if($result){
     // move_uploaded_file($tempname, $folder);
     $showAlert = true;

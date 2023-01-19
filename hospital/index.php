@@ -15,6 +15,7 @@
       z-index: 3;
       position: relative;
     }
+ 
 
     @media screen and (max-width:575px) {
       .availability-form {
@@ -44,16 +45,16 @@
 
       <div class="swiper-wrapper">
         <div class="swiper-slide">
-          <img src="https://static01.nyt.com/images/2017/02/16/well/doctors-hospital-design/doctors-hospital-design-videoSixteenByNine3000.jpg?year=2017&h=1688&w=3000&sig=0x34446ee56203045f76c334c39d398eb5&tw=1" class="w-100" height="400px">
+          <img src="img/1.jpg" class="w-100" height="400px">
         </div>
         <div class="swiper-slide">
-          <img src="https://th.bing.com/th/id/R.77550a1d058c8dac742032d13ad9fbbe?rik=YrFG8qo6Avih%2bQ&riu=http%3a%2f%2fgetwallpapers.com%2fwallpaper%2ffull%2f2%2fe%2ff%2f693753-hospital-wallpapers-1920x1080-picture.jpg&ehk=RxDAuVl%2bVoaUWACaJMZd4DqWxJ5S0Jw3lffdCdhNbmg%3d&risl=&pid=ImgRaw&r=0" class="w-100" height="400px">
+          <img src="img/2.jpg" class="w-100" height="400px">
         </div>
         <div class="swiper-slide">
-          <img src="https://kenall.com/Kenall-Files/Application-Images/APP-HC/ParklandHospital_OR_w900.jpg" class="w-100" height="400px">
+          <img src="img/3.jpg" class="w-100" height="400px">
         </div>
         <div class="swiper-slide">
-          <img src="https://tsoikobus.design/images/portfolio/projects/ucm_orland/540h/slide08.jpg" class="w-100" height="400px">
+          <img src="img/4.jpg " class="w-100" height="400px">
         </div>
       </div>
     </div>
@@ -119,7 +120,7 @@
            </div>
            
            <div class="d-flex justify-content-evenly mb-2">
-           <a href="#" class="btn btn-sm btn-outline-dark shadow-none">More Details</a>
+           <a href="details.php?hid='.$row['Reg_no'].'" class="btn btn-sm btn-outline-dark shadow-none">More Details</a>
            </div>
            </div>
            </div>
@@ -193,7 +194,7 @@
     </div>
     <!--Reach Us-->
     <h2 class="mt-5 mb-4 pt-4 text-center fw-bold h-font">Reach Us</h2>
-    <div class="container">
+    <div class="container" id="contact">
       <div class="row">
         <div class="col-lg-8 col-md-8">
           <iframe class="w-100 rounded" height="320px" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1

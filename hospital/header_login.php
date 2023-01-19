@@ -100,7 +100,10 @@ if (isset($_POST["login"])) {
       z-index: 3;
       position: relative;
     }
-
+    #home:hover{
+      background-color: black;
+      color: white;
+    }
     @media screen and (max-width:575px) {
       .availability-form {
         margin-top: 0px;
@@ -122,16 +125,14 @@ if (isset($_POST["login"])) {
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link active me-2" aria-current="page" href="project.php">Home</a>
-          </li>
+          <!-- <li class="nav-item">
+            <a class="nav-link active me-2" id="home" aria-current="page" href="project.php">Home</a>
+          </li> -->
 
-          <li class="nav-item">
-            <a class="nav-link me-2" href="contact.php">Contact Us</a>
+          <!-- <li class="nav-item">
+            <a class="nav-link me-2" href="#contact">Contact Us</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link me-2" href="about.php">About</a>
-          </li>
+           -->
         </ul>
         <form class="d-flex">
           <?php

@@ -1,8 +1,3 @@
-<?php
-include 'partials/_dbconnect.php';
-session_start();
-$uid=$_SESSION['sno'];
-?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -11,7 +6,8 @@ $uid=$_SESSION['sno'];
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.104.2">
-    <title>Thank You</title>
+    <title>Hospital Details</title>
+
 
 
     
@@ -75,7 +71,6 @@ $uid=$_SESSION['sno'];
 
     
     <!-- Custom styles for this template -->
-    
   </head>
   <body>
     
@@ -86,69 +81,67 @@ $uid=$_SESSION['sno'];
 
     <h1 class="display-5 fw-bold">
     <?php 
-      $status=$_GET['payment_status'];
-      if($status=='Failed')
-        echo 'Oops!! Transaction Failed..Try Again </h1>';
-        else
-        echo 'Thank You for purchasing our subscription </h1>';
+    include_once '../assets/conn/dbconnect.php';
+        $hid=$_GET['hid'];
+       $sql = "SELECT * FROM `hospital` WHERE Reg_no='$hid'"; 
+       $result = mysqli_query($con, $sql);
+       $row = mysqli_fetch_assoc($result);
+        echo $row['Hospital_Name'].'</h1>';
+        
     ?>
-    <?php
-    include 'instamojo/Instamojo.php';
-    $api = new Instamojo\Instamojo('test_e21d0a5d3ec617ae448058512e0', 'test_ef151341507d0d4a62bffaa9dd8','https://test.instamojo.com/api/1.1/');
-    $payid=$_GET['payment_request_id'];
-    try {
-        $response = $api->paymentRequestStatus($payid);
-    }
-    catch (Exception $e) {
-        print('Error: ' . $e->getMessage());
-    }
-    ?>
-    <?php
-    $planid=0;
-    if($response['purpose']=="Basic")
-    {
-      $planid=1;
-    }
-    elseif($response['purpose']=="Individual")
-    {
-      $planid=2;
-    }
-    elseif($response['purpose']=="Family")
-    {
-      $planid=3;
-    }
-    $sql = "INSERT INTO `subscription` ( `userid`, `pid`, `planid`,`dos`) VALUES ('$uid', '$payid','$planid',current_timestamp())";
-    $result = mysqli_query($conn, $sql);
     
-    ?>
+ 
     <div class="col-lg-6 mx-auto">
-      <p class="lead mb-4">Please find the details of your purchase below.</p>
       <table class="table table-hover table-bordered">
   
   <tbody>
     <tr>
-      <td>Plan Purchased</td>
-      <td><?php echo $response['purpose']; ?></td>
+      <td>Registration Id</td>
+      <td><?php echo $row['Reg_no']; ?></td>
     </tr>
     <tr>
-      <td>Payment Id: </td>
-      <td><?php echo $payid;?></td>
+      <td>Accreditation </td>
+      <td><?php echo $row['Accreditation'];?></td>
     </tr>
     <tr>
-      <td>Payee Name</td>
-      <td><?php echo $response['payments'][0]['buyer_name'];?></td>
+      <td>Address</td>
+      <td><?php echo $row['Address'];?></td>
     </tr>
     <tr>
-      <td>Payee Email</td>
-      <td><?php echo $response['payments'][0]['buyer_email']; ?></td>
+      <td>State</td>
+      <td><?php echo $row['State']; ?></td>
     </tr>
     <tr>
-      <td>Payee Phone</td>
-      <td><?php echo $response['payments'][0]['buyer_phone']; ?></td>
+      <td>District</td>
+      <td><?php echo $row['District']; ?></td>
     </tr>
     <tr>
-      <td>Amount Paid(INR)</td>
-      <td><?php echo $response['amount']; ?></td>
+      <td>PIN</td>
+      <td><?php echo $row['Pincode']; ?></td>
+    </tr>
+    <tr>
+      <td>Email</td>
+      <td><?php echo $row['Email']; ?></td>
+    </tr>
+    <tr>
+      <td>Telephone</td>
+      <td><?php echo $row['Telephone_no']; ?></td>
+    </tr>
+    <tr>
+      <td>Mobile No.</td>
+      <td><?php echo $row['Mobile_No']; ?></td>
+    </tr>
+    <tr>
+      <td>Ambulance No.</td>
+      <td><?php echo $row['Ambulance_no']; ?></td>
+    </tr>
+    <tr>
+      <td>Helpline No.</td>
+      <td><?php echo $row['helpline_no']; ?></td>
+    </tr>
+    <tr>
+      <td>Website</td>
+      <td><?php echo $row['Website']; ?></td>
     </tr>
     
   </tbody>
