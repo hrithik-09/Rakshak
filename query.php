@@ -134,6 +134,14 @@
                     ';
                 }
             }
+            else{
+                echo '
+                    <div class="container">
+                    <h1 class="py-2">Start a Discussion</h1> 
+                    <p class="lead">Only logged in users can post a question.</p>
+                    </div>
+                    ';
+            }
 
     ?>
 

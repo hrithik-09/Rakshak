@@ -138,23 +138,23 @@ if (isset($_POST['submit'])) {
                                             </tr>
                                             <tr>
                                                 <td>Password</td>
-                                                <td><input type="text" class="form-control" name="password" value="<?php echo $userRow['password']; ?>" /></td>
+                                                <td><input type="text" class="form-control" name="password" value="<?php echo $userRow['Password']; ?>" /></td>
                                             </tr>
                                             <tr>
                                                 <td>Hospital Name:</td>
-                                                <td><?php echo $userRow['hospitalName'] ?></td>
+                                                <td><?php echo $userRow['Hospital_Name'] ?></td>
                                             </tr>
                                             <tr>
                                                 <td>Contact No.</td>
-                                                <td><input type="text" class="form-control" name="hospitalContact" value="<?php echo $userRow['hospitalContact']; ?>" /></td>
+                                                <td><input type="text" class="form-control" name="hospitalContact" value="<?php echo $userRow['Telephone_no']; ?>" /></td>
                                             </tr>
                                             <tr>
                                                 <td>Address:</td>
-                                                <td><input type="text" class="form-control" name="hospitalAddress" value="<?php echo $userRow['hospitalAddress']; ?>" /></td>
+                                                <td><?php echo $userRow['Address'].' '.$userRow['Pincode']; ?></td>
                                             </tr>
                                             <tr>
                                                 <td>Login Id:</td>
-                                                <td><input type="text" class="form-control" name="hospitalEmail" value="<?php echo $userRow['hospitalEmail']; ?>" /></td>
+                                                <td><input type="text" class="form-control" name="hospitalEmail" value="<?php echo $userRow['Email']; ?>" /></td>
                                             </tr>
                                         </tbody>
                                     </table>

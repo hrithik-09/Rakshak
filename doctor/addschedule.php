@@ -199,7 +199,7 @@ if (isset($_POST['submit'])) {
     </div>
     <div class="container-fluid fixed-bottom bg-dark text-light mb-0">
         <p class="text-center mb-0">
-            copyright &copy; 2021 Rakshak | All rights reserved
+            copyright &copy; 2023 Rakshak | All rights reserved
         </p>
     </div>
     <!-- Bootstrap Core JavaScript -->
