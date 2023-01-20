@@ -11,7 +11,30 @@ include_once '../assets/conn/dbconnect.php';
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
   <link href="https://fonts.googleapis.com/css2?family=Merienda:wght@400;700&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
-  <link href="common.css/comm.css" rel="Stylesheet">
+  <style>
+    .availability-form {
+      margin-top: -50px;
+      z-index: 3;
+      position: relative;
+    }
+    *{
+      font-family: 'Poppins',sans-serif;
+    }
+    .h-font{
+      font-family: 'Merienda',cursive;
+    }
+    #home:hover{
+      background-color: black;
+      color: white;
+    }
+    @media screen and (max-width:575px) {
+      .availability-form {
+        margin-top: 0px;
+        padding: 0 35px;
+      }
+
+    }
+  </style>
   
 </head>
 

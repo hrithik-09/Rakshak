@@ -122,7 +122,7 @@ if (isset($_GET['delete'])) {
                 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal">Add hospital</button>
                
                 <br /><br />
-                <form class="d-flex my-4" role="search" method="get" action="adminhospitalsearch.php">
+                <form class="d-flex my-4" role="search" method="get" action="bedsearch.php">
                      <input class="form-control me-2" type="search" id="search" class="search" name="search" placeholder="Search Hospital Name" aria-label="Search">
                     <button class="btn btn-outline-primary" type="submit">Search</button>
                 </form>
@@ -139,8 +139,12 @@ if (isset($_GET['delete'])) {
                             </tr>
                         </thead>
                         <?php
-                        $result = mysqli_query($con, "SELECT * FROM hospital");
-                        while ($hospital = mysqli_fetch_array($result)) {
+                         $s = $_GET['search'];
+                         $n=1;
+                         $res = mysqli_query($con, "SELECT * FROM hospital JOIN hospital2 WHERE Reg_no=hospitalId AND match(`Hospital_Name`,`Address`,`State`,`District`,`Town`) against('$s')");
+                         $numRows = mysqli_num_rows($res);
+                         if ($numRows > 0) {
+                        while ($hospital = mysqli_fetch_array($res)) {
                             echo "<tbody>";
                             echo "<tr>";
                             echo '<td><a href="details.php?hid='.$hospital['Reg_no'].'">'. $hospital['Hospital_Name'] .'</a></td>';
@@ -149,9 +153,19 @@ if (isset($_GET['delete'])) {
                             echo "<td>" . $hospital['Email'] . "</td>";
                             echo "<td class='text-center'><a href='adminhospital.php?delete=" . $hospital['Reg_no'] . "'id='d" . $hospital['Reg_no'] . "' class='delete'><span  data-feather='trash' aria-hidden='true'></span></a></td>";
                         }
+                    }
+                    else
+                        $n=0;
+                        
                         echo "</tr>";
                         echo "</tbody>";
                         ?>
+                         <?php 
+                if ($n==0) {
+                    # code...
+                    echo "<h2 class= 'mx-2 my-4'>No hospitals to display</h2>"; 
+                }
+                ?>
                 </div>
             </main>
         </div>
