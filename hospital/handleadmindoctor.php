@@ -12,11 +12,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     $lname=$_POST['doctorLastName'];
     $dept=$_POST['doctorDepartment'];
     $gender=$_POST['doctorGender'];
-    $address=$_POST['doctorAddress'];
     $phone=$_POST['doctorPhone'];
     $email=$_POST['doctorEmail'];
-    $sql = "INSERT INTO `doctor` (`password`,`doctorId`, `hid`,`doctorFirstName`, `doctorLastName`, `doctorDepartment`, `doctorGender`, `doctorAddress`, `doctorPhone`, `doctorEmail`, `doctorDOB`)
-    VALUES ('$password' ,'$doctorId','$usersession', '$fname', '$lname','$dept','$gender','$address','$phone','$email','$dob' ) ";
+    $sql = "INSERT INTO `doctor` (`password`,`doctorId`, `hid`,`doctorFirstName`, `doctorLastName`, `doctorDepartment`, `doctorGender`, `doctorPhone`, `doctorEmail`, `doctorDOB`)
+    VALUES ('$password' ,'$doctorId','$usersession', '$fname', '$lname','$dept','$gender','$phone','$email','$dob' ) ";
     $result = mysqli_query($con, $sql);
     if($result){
     $showAlert = true;

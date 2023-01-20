@@ -159,7 +159,7 @@
             <div class="text-container">
                 <h1>About us</h1>
                 <p>Rakshak - One for all <br> One place to look for all medical Helps. No need to worry for quick medical advices</p>
-                <a href="about2.php">Read More</a>
+                <a href="#">Read More</a>
             </div>
 
         </div>

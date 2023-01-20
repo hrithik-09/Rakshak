@@ -2,25 +2,27 @@
 <html lang="en">
 
 <head>
-<head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- Bootstrap CSS -->
-    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-       
-    #ques {
-        min-height: 433px;
-    }
-    *{
-    font-family: 'Roboto', sans-serif;
-}
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <!-- Bootstrap CSS -->
+        <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+        <style>
+        #ques {
+            min-height: 433px;
+        }
+
+        * {
+            font-family: 'Roboto', sans-serif;
+        }
+
         @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
-    </style>
-    <title>Welcome Rakshak- One for all</title>
-</head>
+        </style>
+        <title>Welcome Rakshak- One for all</title>
+    </head>
 
 <body>
     <?php include 'partials/_dbconnect.php';?>
@@ -71,29 +73,38 @@
     <div class="p-5 mb-4 bg-light rounded-3">
         <div class="container-fluid py-4">
             <h1 class="display-4">Welcome to query registration page</h1>
-            <p class="lead"> Register your queries to get it resolved by authorised doctors. You can also refer to similar queries posted by others. We value your privacy. Your identity will remain a secret. </p>
+            <p class="lead"> Register your queries to get it resolved by authorised doctors. You can also refer to
+                similar queries posted by others. We value your privacy. Your identity will remain a secret. </p>
             <hr class="my-4">
-            <p>This is a medical advisory page. Spam / Advertising / Self-promote is not allowed. Do not post “wrong” information. Remain respectful of other members at all times.</p>
-            <a class="btn btn-success btn-lg" href="#" role="button">Learn more</a>
+            <p>This is a medical advisory page. Spam / Advertising / Self-promote is not allowed. Do not post “wrong”
+                information. Remain respectful of other members at all times.</p>
+            <a class="btn btn-secondary btn-lg" href="#" role="button">Learn more</a>
         </div>
     </div>
 
-    <?php 
+    <?php
+    
     if(isset($_SESSION['loggedin']) && $_SESSION['loggedin']==true){ 
-    echo '<div class="container">
+        $sno1=$_SESSION["sno"];
+        $sql = "SELECT * FROM `subscription` WHERE userid='$sno1'"; 
+        $result = mysqli_query($conn, $sql);
+        $numRows = mysqli_num_rows($result);
+        if ($numRows>0) {
+            
+            echo '<div class="container">
             <h1 class="py-2">Ask you Problem</h1> 
             <form action="'. $_SERVER["REQUEST_URI"] . '" method="post">
-                <div class="form-group">
+            <div class="form-group">
                     <label for="exampleInputEmail1">Problem Title</label>
                     <input type="text" class="form-control" id="title" name="title" aria-describedby="emailHelp">
                     <small id="emailHelp" class="form-text text-muted">Keep your title as short</small>
-                </div>
-                <input type="hidden" name="sno" value="'. $_SESSION["sno"]. '">
-                <div class="form-group">
+                    </div>
+                    <input type="hidden" name="sno" value="'. $_SESSION["sno"]. '">
+                    <div class="form-group">
                     <label for="exampleFormControlTextarea1">Elaborate Your Concern</label>
                     <textarea class="form-control my-2" id="desc" name="desc" rows="3"></textarea>
-                </div>
-                <div class="form-group">
+                    </div>
+                    <div class="form-group">
                     <label for="department">Special requests for any department (if any)</label>
                     '?><?php
                     $sql = "SELECT * FROM `departments` WHERE departmentName <> 'Physician' "; 
@@ -102,32 +113,33 @@
                     echo '<select name="department" class="form-select form-select-sm my-2" aria-label=".form-select-sm example">';
                     echo '<option value="Physician" selected>Physician</option>';
                     while($row = mysqli_fetch_assoc($result)){
-                      $cat = $row['departmentName'];
-                      
-                    echo '<option value="'.$cat.'">'.$cat.'</option>';
-
+                        $cat = $row['departmentName'];
+                        
+                        echo '<option value="'.$cat.'">'.$cat.'</option>';
+                        
                     }
                     echo'
                     </select>                    
-                </div>
-                <button type="submit" class="btn btn-success my-2">Submit</button>
-            </form>
-        </div>';
-    }
-    else{
-        echo '
-        <div class="container">
-        <h1 class="py-2">Start a Discussion</h1> 
-           <p class="lead">Only logged in users can post a question.</p>
-        </div>
-        ';
-    }
+                    </div>
+                    <button type="submit" class="btn btn-success my-2">Submit</button>
+                    </form>
+                    </div>';
+                }
+                else{
+                    echo '
+                    <div class="container">
+                    <h1 class="py-2">Start a Discussion</h1> 
+                    <p class="lead">Only Subscribed users can post a question.</p>
+                    </div>
+                    ';
+                }
+            }
 
     ?>
-    
+
     <div class="container mb-5" id="ques">
         <h1 class="py-2">Browse Questions</h1>
-    <?php
+        <?php
     // $id = $_GET['catid'];
     $sql = "SELECT * FROM `threads` ORDER BY timestamp DESC"; 
     $result = mysqli_query($conn, $sql);

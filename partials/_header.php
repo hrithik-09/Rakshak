@@ -56,6 +56,12 @@ echo'
           <a href="partials/_logout.php" class="btn btn-outline-light">Logout</a>
           </form>';
         }
+        else if(isset($_SESSION['doctorloggedin']) && $_SESSION['doctorloggedin']==true){
+          echo'
+          <a href="doctor/doctordashboard.php" class="btn btn-outline-light me-4">'.$_SESSION['doctorSession'].'</a>
+          <a href="partials/_logout.php" class="btn btn-outline-light">Logout</a>
+          </form>';
+        }
         else {
           echo'
        

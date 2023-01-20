@@ -21,7 +21,8 @@ if (isset($_POST['submit'])) {
 	$doctorPhone = $_POST['doctorPhone'];
 	$doctorEmail = $_POST['doctorEmail'];
 	$doctorId = $_POST['doctorId'];
-	$res = mysqli_query($con, "UPDATE doctor SET doctorFirstName='$doctorFirstName', doctorLastName='$doctorLastName', doctorDOB='$doctorDOB', doctorGender='$doctorGender', doctorAddress='$doctorAddress', doctorPhone=$doctorPhone, doctorEmail='$doctorEmail' WHERE doctorId=" . $_SESSION['doctorSession']);
+	$department = $_POST['doctorDepartment'];
+	$res = mysqli_query($con, "UPDATE doctor SET doctorFirstName='$doctorFirstName', doctorLastName='$doctorLastName', doctorDOB='$doctorDOB', doctorGender='$doctorGender', doctorDepartment='$department', doctorPhone=$doctorPhone, doctorEmail='$doctorEmail' WHERE doctorId=" . $_SESSION['doctorSession']);
 	header('Location: doctorprofile.php');
 }
 ?>
@@ -180,8 +181,8 @@ if ($userRow['doctorGender'] == 'male') {
 													<td><input type="text" class="form-control" name="doctorEmail" value="<?php echo $userRow['doctorEmail']; ?>" /></td>
 												</tr>
 												<tr>
-													<td>Address</td>
-													<td><textarea class="form-control" name="doctorAddress"><?php echo $userRow['doctorAddress']; ?></textarea></td>
+													<td>department</td>
+													<td><?php echo $userRow['doctorDepartment']; ?></td>
 												</tr>
 											</tbody>
 										</table>
@@ -205,8 +206,8 @@ if ($userRow['doctorGender'] == 'male') {
 									<td><?php echo $userRow['doctorGender']; ?></td>
 								</tr>
 								<tr>
-									<td>Address</td>
-									<td><?php echo $userRow['doctorAddress']; ?>
+									<td>Department</td>
+									<td><?php echo $userRow['doctorDepartment']; ?>
 									</td>
 								</tr>
 								<tr>

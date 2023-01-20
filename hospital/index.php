@@ -63,9 +63,9 @@
     <!--introduction-->
     <h2 class="mt-5 mb-5 pt-4 text-center fw-bold h-font">Quality care close to home</h2>
     <div class="intro " style="max-width: 600px; writing-mode: horizontal-tb;">
-      <p> To excel in this pressured and fast-changing world, hospitals need to become more efficient, competitive, sustainable, and future-proof. But how? By investing in smart infrastructure. However, nearly 85% of digital transformation initiatives fail. Implementing smart infrastructure in a single hospital or network is complex, with varying rates of success. When taking your digitalization plans off the page and into the hospital, the right partner can make all the difference. </p>
+      <p align="justify"> To excel in this pressured and fast-changing world, hospitals need to become more efficient, competitive, sustainable, and future-proof. But how? By investing in smart infrastructure. However, nearly 85% of digital transformation initiatives fail. Implementing smart infrastructure in a single hospital or network is complex, with varying rates of success. When taking your digitalization plans off the page and into the hospital, the right partner can make all the difference. </p>
 
-      <p>
+      <p align="justify">
         Here we are providing a platform for the hospitals to get the best services and the patients to get the best treatment.
         You can get the best doctors and the best hospitals in your city.
         You can also get the best treatment in your city.
@@ -129,23 +129,8 @@
           }
           } 
            ?>
-
-       
-       
-
-        
-        
-
-     
-
-        
-
-       
-       
       </div>
-      <div class="col-lg-12 text-center mt-5">
-        <a href="#" class="btn btn-sm btn-outline-dark rounded-0 fw-bold shadow-none">More Hospitals>>></a>
-      </div>
+      
     </div>
 
 

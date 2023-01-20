@@ -158,10 +158,7 @@ if (isset($_GET['delete'])) {
                                             <label class="form-check-label" for="doctorGender">Other</label>
                                         </div>
                                     </div>
-                                    <div class="form-floating mb-3">
-                                        <input type="text" class="form-control rounded-3" id="doctorAddress" name="doctorAddress" placeholder="Address" aria-describedby="Address" required>
-                                        <label for="doctorAddress">Address</label>
-                                    </div>
+                                    
                                     <div class="form-floating mb-3">
                                         <input type="number" class="form-control rounded-3" id="doctorPhone" name="doctorPhone" placeholder="name@example.com" aria-describedby="phone" required>
                                         <label for="doctorPhone">Phone No. </label>
