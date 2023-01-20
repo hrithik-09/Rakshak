@@ -97,7 +97,7 @@
 
 
                 <?php
-        $sql = "SELECT * FROM `doctor` JOIN `hospital` WHERE hid=Reg_no";
+        $sql = "SELECT * FROM `doctor` JOIN `hospital` WHERE hid=Reg_no ORDER BY RAND() LIMIT 3";
         $result = mysqli_query($con, $sql);
         $num = 0;
         while ($row = mysqli_fetch_assoc($result)) {

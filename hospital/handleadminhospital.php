@@ -10,6 +10,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     $address=$_POST['address'];
     $state=$_POST['state'];
     $district=$_POST['district'];
+    $type=$_POST['hctype'];
     $town=$_POST['town'];
     $pincode=$_POST['pincode'];
     $phone=$_POST['phone'];
@@ -21,8 +22,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     // $filename = $_FILES["pimage"]["name"];
 	// $tempname = $_FILES["pimage"]["tmp_name"];
 	// $folder = "img/".$filename;
-    $sql = "INSERT INTO `hospital` (`Password`,`Reg_no`, `Hospital_Name`,`Accreditation`, `Address`, `State`, `District`, `Town`,`Pincode`,`Telephone_no`, `Mobile_no`,`Ambulance_no`,`helpline_no`,`Email`,`Website`)
-    VALUES ('$password' ,'$hospitalId', '$name','$accreditation','$address','$state','$district','$town','$pincode','$phone','$mobile','$ambulance','$helpline','$email','$website') ";
+    $sql = "INSERT INTO `hospital` (`Password`,`Reg_no`, `Hospital_Name`,`Accreditation`,`type`, `Address`, `State`, `District`, `Town`,`Pincode`,`Telephone_no`, `Mobile_no`,`Ambulance_no`,`helpline_no`,`Email`,`Website`)
+    VALUES ('$password' ,'$hospitalId', '$name','$accreditation','$type','$address','$state','$district','$town','$pincode','$phone','$mobile','$ambulance','$helpline','$email','$website') ";
     $result = mysqli_query($con, $sql);
     $sql2 = "INSERT INTO `hospital2` (`hospitalId`) VALUES ('$hospitalId') ";
     $result2 = mysqli_query($con, $sql2);

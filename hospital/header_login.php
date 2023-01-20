@@ -1,98 +1,17 @@
 <?php
 include_once '../assets/conn/dbconnect.php';
-include 'functions.php';
-$message = '';
-if (isset($_POST["login"])) {
 
-  $formdata = array();
-
-  if (empty($_POST["email"])) {
-    $message .= '<li>Email Address is required</li>';
-  } else {
-    if (!filter_var($_POST["email"], FILTER_VALIDATE_EMAIL)) {
-      $message .= '<li>Invalid Email Address</li>';
-    } else {
-      $formdata['email'] = $_POST['email'];
-    }
-  }
-
-  if (empty($_POST['pass'])) {
-    $message .= '<li>Password is required</li>';
-  } else {
-    $formdata['pass'] = $_POST['pass'];
-  }
-
-  if ($message == '') {
-    $data = array(
-      ':email'    =>  $formdata['email']
-    );
-
-    $query = "
-		SELECT * FROM users
-        WHERE email = :email
-		";
-
-    $statement = $connect->prepare($query);
-
-    $statement->execute($data);
-
-    if ($statement->rowCount() > 0) {
-      foreach ($statement->fetchAll() as $row) {
-        if ($row['password'] == $formdata['pass']) {
-          header('location:rooms.php');
-        } else {
-          $message = '<li>Wrong Password</li>';
-        }
-      }
-    } else {
-      $message = '<li>Wrong Email Address</li>';
-    }
-  }
-} else if (isset($_POST["register"])) {
-
-
-
-  $formdata = array();
-  $formdata['name'] = $_POST['name'];
-  $formdata['email'] = $_POST['email'];
-  $formdata['pass'] = $_POST['pass'];
-  $formdata['phone'] = $_POST['phone'];
-  $formdata['address'] = $_POST['address'];
-  $formdata['DOB'] = $_POST['DOB'];
-  $formdata['pincode'] = $_POST['pincode'];
-  $formdata['cpass'] = $_POST['cpass'];
-  if ($formdata['cpass'] == $formdata['pass']) {
-    $data = array(
-      ':name' => $formdata['name'],
-      ':email' => $formdata['email'],
-      ':password' => $formdata['pass'],
-      ':phone' => $formdata['phone'],
-      ':address' => $formdata['address'],
-      ':DOB' => $formdata['DOB'],
-      ':pincode' => $formdata['pincode']
-    );
-    $query = "
-      INSERT INTO users (id,email,password,name,address,phone_no,DOB,pincode) VALUES (NULL,:email,:password,:name,:address,:phone,:DOB,:pincode);
-    ";
-    $statement = $connect->prepare($query);
-    $statement->execute($data);
-    header('location:inc/header_login.php');
-    $message = '<li>Registration Successful</li>';
-  } else {
-    $message = '<li>Passwords do not match</li>';
-  }
-}
 ?>
 
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Visitors hostel</title>
+  <title>Rakshak</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Merienda:wght@400;700&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+  <!-- <link href="https://fonts.googleapis.com/css2?family=Merienda:wght@400;700&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet"> -->
   <link href="common.css/comm.css" rel="Stylesheet">
   <style>
     .availability-form {
@@ -194,31 +113,31 @@ if (isset($_POST["login"])) {
                 <div class="col-md-6 ps-0">
                   <label class="form-label">Health Care Provider Type: </label>
                   <div class="form-check">
-                    <input class="form-check-input" name="hctype" type="checkbox" value="Hospital" id="defaultCheck1">
+                    <input class="form-check-input" name="hctype" type="radio" value="Hospital" id="defaultCheck1">
                     <label class="form-check-label" for="defaultCheck1">
                       Hospital
                     </label>
                   </div>
                   <div class="form-check">
-                    <input class="form-check-input" type="checkbox" name="hctype" value="Nursing Home" id="defaultCheck2">
+                    <input class="form-check-input" type="radio" name="hctype" value="Nursing Home" id="defaultCheck2">
                     <label class="form-check-label" for="defaultCheck1">
                       Nursing Home
                     </label>
                   </div>
                   <div class="form-check">
-                    <input class="form-check-input" type="checkbox" name="hctype" value="Medical College" id="defaultCheck1">
+                    <input class="form-check-input" type="radio" name="hctype" value="Medical College" id="defaultCheck1">
                     <label class="form-check-label" for="defaultCheck3">
                       Medical College/Institute
                     </label>
                   </div>
                   <div class="form-check">
-                    <input class="form-check-input" type="checkbox" name="hctype" value="Clinic" id="defaultCheck1">
+                    <input class="form-check-input" type="radio" name="hctype" value="Clinic" id="defaultCheck1">
                     <label class="form-check-label" for="defaultCheck4">
                       Clinic
                     </label>
                   </div>
                   <div class="form-check">
-                    <input class="form-check-input" type="checkbox" name="hctype" value="Others" id="defaultCheck1">
+                    <input class="form-check-input" type="radio" name="hctype" value="Others" id="defaultCheck1">
                     <label class="form-check-label" for="defaultCheck5">
                       Others
                     </label>
@@ -307,7 +226,7 @@ if (isset($_POST["login"])) {
                   <input type="url" name="website" class="form-control shadow-none" placeholder=".com">
                 </div>
 
-                <div class="col-md-12 ps-0 mb-3">
+                <!-- <div class="col-md-12 ps-0 mb-3">
                   <label class="form-label">Specialities :</label><br>
 
                   <div class="form-check">
@@ -355,12 +274,12 @@ if (isset($_POST["login"])) {
                   </div>
 
 
-                  <!-- <div class="form-check">
+                  <div class="form-check">
                     <input class="form-check-input" type="checkbox" value="Kidney Tr" name="specialities" id="defaultCheck12">
                     <label class="form-check-label" for="defaultCheck1">
                       Kidney Transplant
                     </label>
-                  </div> -->
+                  </div>
 
 
                   <div class="form-check">
@@ -377,10 +296,10 @@ if (isset($_POST["login"])) {
                       Orthopedics
                     </label>
                   </div>
-                </div>
+                </div> -->
 
 
-                <div class="col-md-12 ps-0 mb-3">
+                <!-- <div class="col-md-12 ps-0 mb-3">
                   <label class="form-label">Facilities : </label><br>
 
                   <div class="form-check">
@@ -444,7 +363,7 @@ if (isset($_POST["login"])) {
                       Operation Theatre
                     </label>
                   </div>
-                </div>
+                </div> -->
 
 
 
@@ -457,7 +376,7 @@ if (isset($_POST["login"])) {
             </fieldset>
 
             <div class="text-center my-1">
-              <button type="submit" name="register" class="btn btn-dark shadow-none me-lg-2 me-3" data-bs-toggle="modal" data-bs-target="#LoginModal">
+              <button type="submit" name="register" class="btn btn-dark shadow-none me-lg-2 me-3">
                 Register
               </button>
 

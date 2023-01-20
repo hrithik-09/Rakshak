@@ -87,7 +87,7 @@
     <div class="container">
       <div class="row justify-content-evenly">
       <?php 
-         $sql = "SELECT * FROM `hospital`"; 
+         $sql = "SELECT * FROM `hospital` ORDER BY RAND() LIMIT 3"; 
          $result = mysqli_query($con, $sql);
          $num=0;
          while($row = mysqli_fetch_assoc($result)){

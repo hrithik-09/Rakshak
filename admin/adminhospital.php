@@ -14,7 +14,7 @@ $userRow = mysqli_fetch_array($res, MYSQLI_ASSOC);
 if (isset($_GET['delete'])) {
     $sno = $_GET['delete'];
     $delete = true;
-    $sql = "DELETE FROM `hospital` WHERE hospitalId = '$sno'";
+    $sql = "DELETE FROM `hospital` WHERE Reg_no = '$sno'";
     $results = mysqli_query($con, $sql);
 }
 ?>
@@ -120,45 +120,7 @@ if (isset($_GET['delete'])) {
                 <!-- Appointment list -->
                 <h2 class="my-4">Add / Delete hospital(s)</h2>
                 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal">Add hospital</button>
-                <div class="modal modal-signin" tabindex="-1" aria-labelledby="signupModalLabel" id="myModal" aria-hidden="true">
-                    <div class="modal-dialog" style=" width: 600px;transition: bottom .75s ease-in-out;" role="document">
-                        <div class="modal-content rounded-4 shadow">
-                            <div class="modal-header p-5 pb-4 border-bottom-0">
-                                <h1 class="fw-bold mb-0 fs-2">Hospital Registration Form</h1>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body p-5 pt-0">
-                                <form action="handleadminhospital.php" method="post">
-                                    <div class="form-floating mb-3">
-                                        <input type="text" class="form-control rounded-3" id="hospitalId" name="hospitalId" placeholder="hospitalId/Registration Number" aria-describedby="hospitalId" required>
-                                        <label for="hospitalId">hospitalId / Registration Number</label>
-                                    </div>
-                                    <div class="form-floating mb-3">
-                                        <input type="text" class="form-control rounded-3" id="hospitalName" name="hospitalName" placeholder="Hospital Name" aria-describedby="hospitalFirstName" required>
-                                        <label for="hospitalName">Hospital Name</label>
-                                    </div>
-                                    <div class="form-floating mb-3">
-                                        <input type="text" class="form-control rounded-3" id="hospitalAddress" name="hospitalAddress" placeholder="Address" aria-describedby="Address" required>
-                                        <label for="hospitalAddress">Address</label>
-                                    </div>
-                                    <div class="form-floating mb-3">
-                                        <input type="number" class="form-control rounded-3" id="hospitalPhone" name="hospitalContact" placeholder="name@example.com" aria-describedby="phone" required>
-                                        <label for="hospitalContact">Phone No. </label>
-                                    </div>
-                                    <div class="form-floating mb-3">
-                                        <input type="email" class="form-control rounded-3" id="hospitalEmail" name="hospitalEmail" placeholder="name@example.com" aria-describedby="hospitalEmail" required>
-                                        <label for="hospitalEmail">Email address</label>
-                                    </div>
-                                    <div class="form-floating mb-3">
-                                        <input type="password" class="form-control rounded-3" id="password" name="password" placeholder="Password">
-                                        <label for="password">Password</label>
-                                    </div>
-                                    <button class="w-100 mb-2 btn btn-lg rounded-3 btn-primary" type="submit">Register</button>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+               
                 <br /><br />
                 <div class="table-responsive">
                     <!-- Table -->
@@ -177,11 +139,11 @@ if (isset($_GET['delete'])) {
                         while ($hospital = mysqli_fetch_array($result)) {
                             echo "<tbody>";
                             echo "<tr>";
-                            echo "<td>" . $hospital['hospitalId'] . "</td>";
-                            echo "<td>" . $hospital['hospitalName'] . "</td>";
-                            echo "<td>" . $hospital['hospitalContact'] . "</td>";
-                            echo "<td>" . $hospital['hospitalEmail'] . "</td>";
-                            echo "<td class='text-center'><a href='adminhospital.php?delete=" . $hospital['hospitalId'] . "'id='d" . $hospital['hospitalId'] . "' class='delete'><span  data-feather='trash' aria-hidden='true'></span></a></td>";
+                            echo "<td>" . $hospital['Reg_no'] . "</td>";
+                            echo "<td>" . $hospital['Hospital_Name'] . "</td>";
+                            echo "<td>" . $hospital['Telephone_no'] . "</td>";
+                            echo "<td>" . $hospital['Email'] . "</td>";
+                            echo "<td class='text-center'><a href='adminhospital.php?delete=" . $hospital['Reg_no'] . "'id='d" . $hospital['Reg_no'] . "' class='delete'><span  data-feather='trash' aria-hidden='true'></span></a></td>";
                         }
                         echo "</tr>";
                         echo "</tbody>";
