@@ -92,10 +92,6 @@
         <br></br>
         <div class="container">
             <div class="row justify-content-evenly">
-
-
-
-
                 <?php
         $sql = "SELECT * FROM `doctor` JOIN `hospital` WHERE hid=Reg_no ORDER BY RAND() LIMIT 3";
         $result = mysqli_query($con, $sql);

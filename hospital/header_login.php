@@ -12,22 +12,27 @@ include_once '../assets/conn/dbconnect.php';
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
   <!-- <link href="https://fonts.googleapis.com/css2?family=Merienda:wght@400;700&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet"> -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <style>
     .availability-form {
       margin-top: -50px;
       z-index: 3;
       position: relative;
     }
-    *{
-      font-family: 'Poppins',sans-serif;
+
+    * {
+      font-family: 'Poppins', sans-serif;
     }
-    .h-font{
-      font-family: 'Merienda',cursive;
+
+    .h-font {
+      font-family: 'Merienda', cursive;
     }
-    #home:hover{
+
+    #home:hover {
       background-color: black;
       color: white;
     }
+
     @media screen and (max-width:575px) {
       .availability-form {
         margin-top: 0px;
@@ -60,12 +65,11 @@ include_once '../assets/conn/dbconnect.php';
         </ul>
         <form class="d-flex">
           <?php
-          if(isset($_SESSION['hospitalloggedin']) && $_SESSION['hospitalloggedin']==true){
-            echo'
-            <a href="patient/patient.php" class="btn btn-outline-dark shadow-none me-lg-3 me-2">'.$_SESSION['hospitalSession'].'</a>';
-          }
-          else
-          echo '<a href="../hospitallogin.php" type="button" class="btn btn-outline-dark shadow-none me-lg-3 me-2">Login
+          if (isset($_SESSION['hospitalloggedin']) && $_SESSION['hospitalloggedin'] == true) {
+            echo '
+            <a href="patient/patient.php" class="btn btn-outline-dark shadow-none me-lg-3 me-2">' . $_SESSION['hospitalSession'] . '</a>';
+          } else
+            echo '<a href="../hospitallogin.php" type="button" class="btn btn-outline-dark shadow-none me-lg-3 me-2">Login
           </a>';
           ?>
           <button type="button" class="btn btn-outline-dark shadow-none " data-bs-toggle="modal" data-bs-target="#RegisterModal">
@@ -77,7 +81,7 @@ include_once '../assets/conn/dbconnect.php';
     </div>
   </nav>
 
-  
+
   </div>
 
 
@@ -85,7 +89,7 @@ include_once '../assets/conn/dbconnect.php';
   <div class="modal fade" id="RegisterModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
-        <form method="post" action="handleadminhospital.php">
+        <form method="post" autocomplete="off" action="handleadminhospital.php">
           <div class="modal-header">
             <h5 class="modal-title d-flex align-items-center">
               <i class="bi bi-person-lines-fill"></i>
@@ -118,44 +122,44 @@ include_once '../assets/conn/dbconnect.php';
                 <div class="col-md-6 ps-0">
                   <label class="form-label">Health Care Provider Type: </label>
                   <div class="form-check">
-                    <input class="form-check-input" name="hctype" type="radio" value="Hospital" id="defaultCheck1">
+                    <input class="form-check-input" name="hctype" type="radio" value="Hospital">
                     <label class="form-check-label" for="defaultCheck1">
                       Hospital
                     </label>
                   </div>
                   <div class="form-check">
-                    <input class="form-check-input" type="radio" name="hctype" value="Nursing Home" id="defaultCheck2">
+                    <input class="form-check-input" type="radio" name="hctype" value="Nursing Home">
                     <label class="form-check-label" for="defaultCheck1">
                       Nursing Home
                     </label>
                   </div>
                   <div class="form-check">
-                    <input class="form-check-input" type="radio" name="hctype" value="Medical College" id="defaultCheck1">
+                    <input class="form-check-input" type="radio" name="hctype" value="Medical College">
                     <label class="form-check-label" for="defaultCheck3">
                       Medical College/Institute
                     </label>
                   </div>
                   <div class="form-check">
-                    <input class="form-check-input" type="radio" name="hctype" value="Clinic" id="defaultCheck1">
+                    <input class="form-check-input" type="radio" name="hctype" value="Clinic">
                     <label class="form-check-label" for="defaultCheck4">
                       Clinic
                     </label>
                   </div>
                   <div class="form-check">
-                    <input class="form-check-input" type="radio" name="hctype" value="Others" id="defaultCheck1">
+                    <input class="form-check-input" type="radio" name="hctype" value="Others">
                     <label class="form-check-label" for="defaultCheck5">
                       Others
                     </label>
                   </div>
                 </div>
 
-                <!-- <div class="col-md-6 ps-0 mb-3">
+                <div class="col-md-6 ps-0 mb-3">
                   <label class="form-label">Upload Image</label>
                   <input type="file" name="pimage" class="form-control shadow-none" required>
-                </div> -->
+                </div>
                 <div class="col-md-6 ps-0 mb-3">
                   <label class="form-label">Password</label>
-                  <input type="password" name="pass" class="form-control shadow-none" required>
+                  <input type="password" name="pass" autocomplete="new-password" class="form-control shadow-none" required>
                 </div>
 
                 <!-- ----------------- -->
@@ -175,24 +179,25 @@ include_once '../assets/conn/dbconnect.php';
 
                 <div class="col-md-12 ps-0 mb-3">
                   <label class="form-label">State</label>
-                  <input type="text" name="state" class="form-control shadow-none" required>
+                  <input type="text" name="state" id="state" class="form-control shadow-none" disabled required>
                 </div>
 
                 <div class="col-md-12 ps-0 mb-3">
                   <label class="form-label">District</label>
-                  <input type="text" name="district" class="form-control shadow-none" required>
+                  <input type="text" name="district" id="district" class="form-control shadow-none" disabled required>
                 </div>
 
                 <div class="col-md-12 ps-0 mb-3">
                   <label class="form-label">Town</label>
-                  <input type="text" name="town" class="form-control shadow-none">
+                  <input type="text" name="town" id="town" class="form-control shadow-none" disabled>
                 </div>
 
-                
+
 
                 <div class="col-md-6 ps-0 mb-3">
                   <label class="form-label">Pincode</label>
-                  <input type="number" name="pincode" class="form-control shadow-none" required>
+                  <input type="text" name="pincode" id="pincode" class="form-control shadow-none" required>
+                  <input type="button" class="btn btn-primary my-2" value="Get details" onclick="get_details()">
                 </div>
 
 
@@ -214,7 +219,7 @@ include_once '../assets/conn/dbconnect.php';
                   <input type="number" name="mobile" class="form-control shadow-none">
                 </div>
 
-                
+
 
                 <div class="col-md-12 ps-0 mb-3">
                   <label class="form-label">Ambulance Phone No.</label>
@@ -375,7 +380,7 @@ include_once '../assets/conn/dbconnect.php';
                 <!-- ------------------
 ------------------ -->
 
-                
+
               </div>
             </div>
             </fieldset>
@@ -392,3 +397,37 @@ include_once '../assets/conn/dbconnect.php';
     </div>
   </div>
   </div>
+  <script>
+        function get_details() {
+            var pincode = jQuery('#pincode').val();
+            if (pincode == '') {
+                jQuery('#district').val('');
+                jQuery('#state').val('');
+                jQuery('#town').val('');
+            } else {
+                jQuery.ajax({
+                    url: 'get.php',
+                    type: 'post',
+                    data: 'pincode=' + pincode,
+                    success: function(data) {
+                         if (data=='no') {
+                            alert('Wrong pincode');
+                            jQuery('#district').val('');
+                            jQuery('#state').val('');
+                            jQuery('#town').val('');
+                         }
+                         else
+                         {
+                             var getData =$.parseJSON(data);
+                             jQuery('#district').val(getData.district);
+                             jQuery('#state').val(getData.state);
+                             jQuery('#town').val(getData.town);
+                        }
+                        
+
+                    }
+                })
+            }
+        }
+    </script>
+</body>
