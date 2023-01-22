@@ -104,6 +104,10 @@
       <td><?php echo $row['Accreditation'];?></td>
     </tr>
     <tr>
+      <td>Speciality</td>
+      <td><?php echo $row['speciality']; ?></td>
+    </tr>
+    <tr>
       <td>Address</td>
       <td><?php echo $row['Address'];?></td>
     </tr>
@@ -143,7 +147,6 @@
       <td>Website</td>
       <td><?php echo $row['Website']; ?></td>
     </tr>
-    
   </tbody>
 </table>
       <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">

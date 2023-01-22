@@ -89,7 +89,7 @@ include_once '../assets/conn/dbconnect.php';
   <div class="modal fade" id="RegisterModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
-        <form method="post" autocomplete="off" action="handleadminhospital.php">
+        <form method="post" enctype="multipart/form-data" autocomplete="off" action="handleadminhospital.php">
           <div class="modal-header">
             <h5 class="modal-title d-flex align-items-center">
               <i class="bi bi-person-lines-fill"></i>
@@ -154,8 +154,8 @@ include_once '../assets/conn/dbconnect.php';
                 </div>
 
                 <div class="col-md-6 ps-0 mb-3">
-                  <label class="form-label">Upload Image</label>
-                  <input type="file" name="pimage" class="form-control shadow-none" required>
+                  <label class="form-label">Upload Image(After Registration)</label>
+                  <input type="file" name="pimage" class="form-control shadow-none" disabled>
                 </div>
                 <div class="col-md-6 ps-0 mb-3">
                   <label class="form-label">Password</label>
@@ -179,17 +179,17 @@ include_once '../assets/conn/dbconnect.php';
 
                 <div class="col-md-12 ps-0 mb-3">
                   <label class="form-label">State</label>
-                  <input type="text" name="state" id="state" class="form-control shadow-none" disabled required>
+                  <input type="text" name="state" id="state" value="" class="form-control shadow-none" required>
                 </div>
 
                 <div class="col-md-12 ps-0 mb-3">
                   <label class="form-label">District</label>
-                  <input type="text" name="district" id="district" class="form-control shadow-none" disabled required>
+                  <input type="text" name="district" id="district" value="" class="form-control shadow-none"required>
                 </div>
 
                 <div class="col-md-12 ps-0 mb-3">
                   <label class="form-label">Town</label>
-                  <input type="text" name="town" id="town" class="form-control shadow-none" disabled>
+                  <input type="text" name="town" id="town" value="" class="form-control shadow-none">
                 </div>
 
 
@@ -236,32 +236,32 @@ include_once '../assets/conn/dbconnect.php';
                   <input type="url" name="website" class="form-control shadow-none" placeholder=".com">
                 </div>
 
-                <!-- <div class="col-md-12 ps-0 mb-3">
+                <div class="col-md-12 ps-0 mb-3">
                   <label class="form-label">Specialities :</label><br>
 
                   <div class="form-check">
-                    <input class="form-check-input" type="checkbox" name="specialities" value="Anaesthesiology" id="defaultCheck6">
+                    <input class="form-check-input" type="checkbox" name="speciality[]" value="Anaesthesiology" id="defaultCheck6">
                     <label class="form-check-label" for="defaultCheck1">
                       Anaesthesiology
                     </label>
                   </div>
 
                   <div class="form-check">
-                    <input class="form-check-input" type="checkbox" name="specialities" value="Anatomy" id="defaultCheck7">
+                    <input class="form-check-input" type="checkbox" name="speciality[]" value="Anatomy" id="defaultCheck7">
                     <label class="form-check-label" for="defaultCheck1">
                       Anatomy
                     </label>
                   </div>
 
                   <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="Dental" name="specialities" id="defaultCheck8">
+                    <input class="form-check-input" type="checkbox" value="Dental" name="speciality[]" id="defaultCheck8">
                     <label class="form-check-label" for="defaultCheck1">
                       Dental
                     </label>
                   </div>
 
                   <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="Neurology" name="specialities" id="defaultCheck9">
+                    <input class="form-check-input" type="checkbox" value="Neurology" name="speciality[]" id="defaultCheck9">
                     <label class="form-check-label" for="defaultCheck1">
                       Neurology
                     </label>
@@ -269,7 +269,7 @@ include_once '../assets/conn/dbconnect.php';
 
 
                   <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="Psychiatry" name="specialities" id="defaultCheck10">
+                    <input class="form-check-input" type="checkbox" value="Psychiatry" name="speciality[]" id="defaultCheck10">
                     <label class="form-check-label" for="defaultCheck1">
                       Psychiatry
                     </label>
@@ -277,7 +277,7 @@ include_once '../assets/conn/dbconnect.php';
 
 
                   <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="Pediatrics" name="specialities" id="defaultCheck11">
+                    <input class="form-check-input" type="checkbox" value="Pediatrics" name="speciality[]" id="defaultCheck11">
                     <label class="form-check-label" for="defaultCheck1">
                       Pediatrics
                     </label>
@@ -285,7 +285,7 @@ include_once '../assets/conn/dbconnect.php';
 
 
                   <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="Kidney Tr" name="specialities" id="defaultCheck12">
+                    <input class="form-check-input" type="checkbox" value="Kidney Transplant" name="speciality[]" id="defaultCheck12">
                     <label class="form-check-label" for="defaultCheck1">
                       Kidney Transplant
                     </label>
@@ -293,7 +293,7 @@ include_once '../assets/conn/dbconnect.php';
 
 
                   <div class="form-check">
-                    <input class="form-check-input" name="specialities" type="checkbox" value="Cardiology" id="defaultCheck13">
+                    <input class="form-check-input" name="speciality[]" type="checkbox" value="Cardiology" id="defaultCheck13">
                     <label class="form-check-label" for="defaultCheck1">
                       Cardiology
                     </label>
@@ -301,79 +301,15 @@ include_once '../assets/conn/dbconnect.php';
 
 
                   <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="Orthopedics" name="specialities" id="defaultCheck14">
+                    <input class="form-check-input" type="checkbox" value="Orthopedics" name="speciality[]" id="defaultCheck14">
                     <label class="form-check-label" for="defaultCheck1">
                       Orthopedics
                     </label>
                   </div>
-                </div> -->
+                </div>
 
 
-                <!-- <div class="col-md-12 ps-0 mb-3">
-                  <label class="form-label">Facilities : </label><br>
-
-                  <div class="form-check">
-                    <input class="form-check-input" type="checkbox" name="specialities" value="ICU" id="defaultCheck15">
-                    <label class="form-check-label" for="defaultCheck1">
-                      ICU
-                    </label>
-                  </div>
-
-
-
-                  <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="OPD" name="specialities" id="defaultCheck16">
-                    <label class="form-check-label" for="defaultCheck1">
-                      OPD
-                    </label>
-                  </div>
-
-
-
-                  <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="Pharmacy" name="specialities" id="defaultCheck17">
-                    <label class="form-check-label" for="defaultCheck1">
-                      Pharmacy
-                    </label>
-                  </div>
-
-
-
-                  <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="Ambulance" name="specialities" id="defaultCheck18">
-                    <label class="form-check-label" for="defaultCheck1">
-                      Ambulance
-                    </label>
-                  </div>
-
-
-
-
-                  <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="Blood Bank" name="specialities" id="defaultCheck19">
-                    <label class="form-check-label" for="defaultCheck1">
-                      Blood Bank
-                    </label>
-                  </div>
-
-
-
-                  <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="Laboratory" name="specialities" id="defaultCheck20">
-                    <label class="form-check-label" for="defaultCheck1">
-                      Laboratory
-                    </label>
-                  </div>
-
-
-
-                  <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="Operation Theatre" name="specialities" id="defaultCheck21">
-                    <label class="form-check-label" for="defaultCheck1">
-                      Operation Theatre
-                    </label>
-                  </div>
-                </div> -->
+                
 
 
 

@@ -118,8 +118,7 @@ if (isset($_GET['delete'])) {
                 </div>
                 <!-- Page Heading end-->
                 <!-- Appointment list -->
-                <h2 class="my-4">Add / Delete hospital(s)</h2>
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal">Add hospital</button>
+                <h2 class="my-4">View / Delete hospital(s)</h2>
                
                 <br /><br />
                 <form class="d-flex my-4" role="search" method="get" action="adminhospitalsearch.php">

@@ -104,6 +104,10 @@
       <td><?php echo $row['Accreditation'];?></td>
     </tr>
     <tr>
+      <td>Speciality</td>
+      <td><?php echo $row['speciality']; ?></td>
+    </tr>
+    <tr>
       <td>Address</td>
       <td><?php echo $row['Address'];?></td>
     </tr>
