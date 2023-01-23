@@ -20,7 +20,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     $website=$_POST['website'];
     $email=$_POST['email'];
     $chkbox=$_POST['speciality'];
-    $chk=implode(",",$chkbox);
+    $chk=implode(",",$chkbox);    
+        // Validate password strength
+        
     
     $sql = "INSERT INTO `hospital` (`Password`,`Reg_no`, `Hospital_Name`,`Accreditation`,`type`, `Address`, `State`, `District`, `Town`,`Pincode`,`Telephone_no`, `Mobile_no`,`Ambulance_no`,`helpline_no`,`Email`,`Website`,`speciality`)
     VALUES ('$password' ,'$hospitalId', '$name','$accreditation','$type','$address','$state','$district','$town','$pincode','$phone','$mobile','$ambulance','$helpline','$email','$website','$chk') ";
