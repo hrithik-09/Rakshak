@@ -11,6 +11,10 @@ JOIN doctorschedule c
 On b.scheduleId=c.scheduleId
 WHERE b.appId  =" . $appid);
 $userRow = mysqli_fetch_array($res, MYSQLI_ASSOC);
+$did=$userRow['doctorId'];
+$res2 = mysqli_query($con, "SELECT * FROM doctor JOIN hospital on doctor.hid=hospital.Reg_no WHERE doctorId='$did' ");
+$userRow2 = mysqli_fetch_array($res2, MYSQLI_ASSOC);
+
 date_default_timezone_set("Asia/Calcutta");
 ?>
 <!doctype html>
@@ -86,6 +90,22 @@ date_default_timezone_set("Asia/Calcutta");
 
                 <td>
                     <?php echo $userRow['scheduleId']; ?>
+                </td>
+            </tr>
+            <tr class="item">
+                <td>
+                    Doctor Name
+                </td>
+                <td>
+                    <?php echo 'Dr. '. $userRow2['doctorFirstName'].' '.$userRow2['doctorLastName']; ?>
+                </td>
+            </tr>
+            <tr class="item">
+                <td>
+                    Hospital Details
+                </td>
+                <td>
+                    <?php echo $userRow2['Hospital_Name']; ?>
                 </td>
             </tr>
             <tr class="item">

@@ -101,7 +101,7 @@ date_default_timezone_set("Asia/Calcutta");
                 <!-- Appointment list -->
                 <h2 class="my-4">Hi <?php echo $userRow['patientFirstName']; ?> <?php echo $userRow['patientLastName']; ?>. Make appointment today!</h2>
                 <div class="col-md-2">
-                    <input type="date" class="form-control my-4" id="date" min=<?php echo date("Y-m-d") ?> name="date" onchange="showUser(this.value)" />
+                    <input type="date" class="form-control my-4" id="date" min=<?php echo date("Y-m-d",strtotime('+1 days')) ?> name="date" onchange="showUser(this.value)" />
                 </div>
                 <script>
                     function showUser(str) {
