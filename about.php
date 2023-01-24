@@ -37,12 +37,12 @@
 
         .bg-1 {
             flex: 1;
-            background-color: rgb(180, 243, 175);
+            background-color: white;
         }
 
         .bg-2 {
             flex: 1;
-            background-color: rgb(163, 236, 240);
+            background-color: white;
         }
 
         .about-container {
@@ -50,7 +50,7 @@
             min-height: 80vh;
             position: absolute;
             background-color: white;
-            box-shadow: 24px 24px 30px #6d8dad;
+            box-shadow: 24px 24px 24px 24px whitesmoke;
             display: flex;
             /* flex-direction: row; */
             justify-content: center;
@@ -62,6 +62,7 @@
         .image-container {
             flex: 1;
             display: flex;
+            
             justify-content: center;
             align-items: center;
         }
