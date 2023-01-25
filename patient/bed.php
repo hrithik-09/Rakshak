@@ -88,6 +88,12 @@ $userRow2 = mysqli_fetch_array($res2);
                             </a>
                         </li>
                         <li class="nav-item">
+                            <a class="nav-link" href="profile.php?patientId=<?php echo $userRow2['icPatient']; ?>">
+                                <span data-feather="dollar-sign" class="align-text-bottom"></span>
+                                Subscription
+                            </a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link" href="patientlogout.php?logout">
                                 <span data-feather="log-out"></span>
                                 Log Out

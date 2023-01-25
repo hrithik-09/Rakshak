@@ -83,6 +83,12 @@ date_default_timezone_set("Asia/Calcutta");
                             </a>
                         </li>
                         <li class="nav-item">
+                            <a class="nav-link" href="subscription.php?patientId=<?php echo $userRow['icPatient']; ?>">
+                                <span data-feather="dollar-sign" class="align-text-bottom"></span>
+                                Subscription
+                            </a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link" href="patientlogout.php?logout">
                                 <span data-feather="log-out"></span>
                                 Log Out
