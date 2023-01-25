@@ -28,18 +28,30 @@ if (isset($_POST['appointment'])) {
 			$btn = "disable";
 		}
 	}
+	
+	
+	$que = mysqli_query($con, "SELECT * FROM subscription WHERE userid='$session'");
+	$que2 = mysqli_fetch_assoc($que);
+	$fapt="No";
+	if ($que2['aptleft']!=0) {
+		$fapt="Yes";
+	}
+	$query = "INSERT INTO appointment (  patientIc , scheduleId , appSymptom , appComment ,freeapt ) VALUES ( '$patientIc', '$scheduleid', '$symptom', '$comment','$fapt') ";
+
+//update table appointment schedule
 
 
-	$query = "INSERT INTO appointment (  patientIc , scheduleId , appSymptom , appComment  )
-VALUES ( '$patientIc', '$scheduleid', '$symptom', '$comment') ";
+$result = mysqli_query($con, $query);
 
-	//update table appointment schedule
+// echo $result;
+if ($result) {
+		
+	$query3=mysqli_query($con,"UPDATE subscription SET aptleft=aptleft- 1 WHERE userid='$session' AND aptleft<>0");
+	 
+	
 
-
-	$result = mysqli_query($con, $query);
-	// echo $result;
-	if ($result) {
 ?>
+
 		<script type="text/javascript">
 			alert('Appointment made successfully.');
 		</script>

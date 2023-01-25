@@ -12,8 +12,11 @@ On b.scheduleId=c.scheduleId
 WHERE b.appId  =" . $appid);
 $userRow = mysqli_fetch_array($res, MYSQLI_ASSOC);
 $did=$userRow['doctorId'];
+$pid=$userRow['icPatient'];
 $res2 = mysqli_query($con, "SELECT * FROM doctor JOIN hospital on doctor.hid=hospital.Reg_no WHERE doctorId='$did' ");
 $userRow2 = mysqli_fetch_array($res2, MYSQLI_ASSOC);
+$res3 = mysqli_query($con, "SELECT * FROM subscription WHERE userid='$pid' ");
+$userRow3 = mysqli_fetch_array($res2, MYSQLI_ASSOC);
 
 date_default_timezone_set("Asia/Calcutta");
 ?>
@@ -60,7 +63,8 @@ date_default_timezone_set("Asia/Calcutta");
                         <tr>
                             <td> Patient Id : <?php echo $userRow['patientIc']; ?><br>
                                 Patient Name : <?php echo $userRow['patientFirstName']; ?> <?php echo $userRow['patientLastName']; ?><br>
-                                Patient Email : <?php echo $userRow['patientEmail']; ?>
+                                Patient Email : <?php echo $userRow['patientEmail']; ?> <br>
+                                Free appointment  : <?php echo $userRow['freeapt']; ?>
                             </td>
                         </tr>
                     </table>

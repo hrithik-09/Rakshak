@@ -45,7 +45,7 @@ if (isset($_POST['submit'])) {
 <body>
     <!-- navigation -->
     <header class="navbar navbar-dark sticky-top bg-danger flex-md-nowrap p-0 shadow">
-        <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-6" href="doctordashboard.php">Welcome Dr
+        <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-6" href="doctordashboard.php">Welcome Dr.
             <?php echo $userRow['doctorFirstName']; ?> <?php echo $userRow['doctorLastName']; ?>
         </a>
         <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse"
