@@ -16,6 +16,15 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             $_SESSION['patientSession'] = $row['icPatient'];
             $_SESSION['useremail'] = $email;
             echo "logged in". $email;
+            $sql2="SELECT *,DATEDIFF(CURDATE(),dos)+1 AS diff FROM subscription WHERE userid = '$uid'";
+            $result2 = mysqli_query($conn, $sql2);
+            $numrows=mysqli_num_rows($result2);
+            $userrows=mysqli_fetch_assoc($result2);
+            if ($numrows==1) {
+                if (($userrows['planid']==1 && $userrows['diff']>30) || ($userrows['planid']==2 && $userrows['diff']>30) || ($userrows['planid']==3 && $userrows['diff']>365)) {
+                    mysqli_query($conn, "DELETE FROM subscription WHERE userid = '$uid'");
+                }
+            }
         } 
         header("Location: /rakshak/index.php");  
     }

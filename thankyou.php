@@ -105,19 +105,25 @@ $uid=$_SESSION['sno'];
     ?>
     <?php
     $planid=0;
+    $freeapt=0;
+    $ques=0;
     if($response['purpose']=="Basic")
     {
       $planid=1;
+      $freeapt=0;
+      $ques=1;
     }
     elseif($response['purpose']=="Individual")
     {
-      $planid=2;
+      $planid=1;
+      $freeapt=0;
+      $ques=1;
     }
     elseif($response['purpose']=="Family")
     {
       $planid=3;
     }
-    $sql = "INSERT INTO `subscription` ( `userid`, `pid`, `planid`,`dos`) VALUES ('$uid', '$payid','$planid',current_timestamp())";
+    $sql = "INSERT INTO `subscription` ( `userid`, `pid`, `planid`,`dos`,`freeapt`,`ques`) VALUES ('$uid', '$payid','$planid',current_timestamp())";
     $result = mysqli_query($conn, $sql);
     
     ?>
