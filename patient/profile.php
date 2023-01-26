@@ -128,7 +128,7 @@ if ($userRow['patientMaritalStatus'] == 'single') {
 							</a>
 						</li>
 						<li class="nav-item">
-                            <a class="nav-link" href="profile.php?patientId=<?php echo $userRow2['icPatient']; ?>">
+                            <a class="nav-link" href="subscription.php?patientId=<?php echo $userRow['icPatient']; ?>">
                                 <span data-feather="dollar-sign" class="align-text-bottom"></span>
                                 Subscription
                             </a>
