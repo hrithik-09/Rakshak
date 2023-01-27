@@ -1,62 +1,60 @@
 *{
-    line-height: 2rem;
+    margin: 0;
+    padding: 0;
 }
-h1,h2,h3,h4{
+h1{
     text-align: center;
-    line-height: 1.6rem;
-    color: brown;
 }
-p{
+img{
+    opacity: 0.8;
+    margin-top: 20px;
+}
+.bloodPressure{
+    margin-top: 20px;
+    
+}
+.bp-info{
+    padding: 26px;
+    margin:28px;
+    text-align: left;
     line-height: 2rem;
+    font-size: 18px;
 }
 h2{
-    line-height: 1.5rem;
+    text-align: center;
 }
-.parallax1{
-    background: url("https://cdn.vox-cdn.com/thumbor/ldNyjvEnGZ0rVTWLFbJO6mw5iAI=/0x0:2027x1479/1200x800/filters:focal(326x252:650x576)/cdn.vox-cdn.com/uploads/chorus_image/image/60255061/GettyImages_145897365.0.jpg");
-    background-size: cover;
-    background-attachment: fixed;
-    height: 480px;
-    
+.bp-symptoms
+{
+    padding: 26px;
+    margin:28px;
+    text-align: left;
+    line-height: 2rem;
+    font-size: 18px;
 }
-.parallax2{
-    background: url("https://share-cdn-prod.azureedge.net/wp-content/uploads/2015/05/pressure-cuff.jpg");
-    background-size: cover;
-    background-attachment: fixed;
-    height: 480px;
-    
+.bp_symptns1{
+    margin-top: 18px;
 }
-.parallax3{
-    background: url("https://cdn.cancercenter.com/-/media/ctca/images/others/blogs/2020/03-march/blog-blood-pressure-l.jpg");
-    background-size: cover;
-    background-attachment: fixed;
-    height: 450px;
-   
-}
-.parallax4{
-    background: url("https://www.emergency-live.com/wp-content/uploads/2022/06/pressione-arteriosa-ipertensione-1.jpg");
-     background-size: cover;
-    background-attachment: fixed;
-    height: 480px;
-    
-}
-.parallax5{
-    background: url("https://media.istockphoto.com/id/1155951147/photo/first-well-take-a-blood-pressure-reading.jpg?s=612x612&w=0&k=20&c=3GTkAn22Nq6fbu0ETxdEVIWC0j1_b8S6KoY_nO_w9-k=");
-    background-size: cover;
-    background-attachment: fixed;
-    height: 480px;
-   
+.symptons_li{
+    margin-left: 18px; 
 }
 
-.treatment ul{
-    list-style-type:none;
-} 
-/* .hivsymptons{
-    line-height: 0.5rem;
-} */
-.riskfactors{
+.prevention{
+    padding: 26px;
+    margin:20px;
+    text-align: left;
     line-height: 2rem;
+    font-size: 18px;
 }
-p{
-    line-height: 2rem;
+.prevention_1{
+    margin-top: 18px;
+}
+.info_p1{
+    font-size: 20px;
+    padding-bottom: 20px;
+}
+.prevent_li{
+    margin-left: 18px; 
+}
+marquee{
+    color: red;
 }

@@ -1,51 +1,68 @@
-body{
-    background-color: white;
-}
-.parallax1{
-
-    background: url("https://t3.ftcdn.net/jpg/03/09/32/16/360_F_309321673_0mGMOFnaXeMBUIORdeYe96mjShdCMRUC.jpg");
-    background-size: cover;
-    background-attachment: fixed;
-    height: 520px;
-
-}
-.parallax2{
-    background: url("https://www.shutterstock.com/image-vector/comparison-healthy-lung-asthmatic-illustration-260nw-1792263992.jpg");
-    background-size: cover;
-    background-attachment: fixed;
-   height: 450px;
-}
-.parallax3{
-    background: url("https://images.indianexpress.com/2019/06/asthma_759getty.jpg");
-    background-size: cover;
-    background-attachment: fixed;
-    height: 500px;
-
-}
-.parallax4{
-    background: url("https://www.singlecare.com/blog/wp-content/uploads/2022/03/Blog_032522_Natural_remedies_asthma.png");
-    background-size: cover;
-    background-attachment: fixed;
-    height: 500px;
-
+*{
+    margin: 0;
+    padding: 0;
 }
 h1{
     text-align: center;
-    color: brown;
 }
-h3,h4{
-    line-height: 1.5rem;
+img{
+    opacity: 0.8;
+    margin-top: 20px;
+}
+.covid{
+    margin-top: 20px;
+    
+}
+.covid-info{
+    padding: 26px;
+    margin:28px;
+    text-align: left;
+    line-height: 2rem;
+    font-size: 18px;
+}
+h2{
     text-align: center;
-    color: brown;
 }
-p{
-    line-height: 1.5rem;
+.covid-symptoms{
+    padding: 26px;
+    margin:28px;
+    
+    text-align: left;
+    line-height: 2rem;
+    font-size: 18px;
 }
-table ,td ,th{
-    border: 0.7px solid;
-    border-collapse: collapse;
-    line-height: 1.7rem;
+.covid_symptns1{
+    margin-top: 18px;
+    
 }
-table{
+.symptons_li{
+    margin-left: 18px;
+}
+.prevention{
+    padding: 18px;
+    margin:28px;
+    text-align: left;
+    line-height: 2rem;
+    font-size: 18px;
+}
+.prevention_1{
+    margin-top: 18px;
+}
+.info_p1{
+    font-size: 20px;
+    padding-bottom: 20px;
+    text-align: center;
+}
+marquee{
+    color: red;
+}
+table {
     width: 100%;
 }
+table, td, th{
+    margin: -40px;
+    padding: 30px;
+    line-height: 2rem;
+    text-align: justify;
+}
+

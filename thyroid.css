@@ -1,56 +1,62 @@
-h1,h2,h3,h4{
-    text-align: center;
-    line-height: 1.6rem;
-    color: brown;
+*{
+    margin: 0;
+    padding: 0;
 }
-/* body{
-    background-color: antiquewhite;
-} */
-p{
+h1{
+    text-align: center;
+}
+img{
+    opacity: 0.8;
+    margin-top: 20px;
+}
+.covid{
+    margin-top: 20px;
+    
+}
+.covid-info{
+    padding: 26px;
+    margin:28px;
+    text-align: left;
     line-height: 2rem;
+    font-size: 18px;
+}
+.types{
+    padding: 26px;
+    margin:28px;
+    text-align: left;
+    line-height: 2rem;
+    font-size: 18px;
 }
 h2{
-    line-height: 1.5rem;
+    text-align: center;
 }
-.parallax1{
-    background: url("https://www.institutobernabeu.com/wp-content/uploads/2022/03/ForoIB_tiroides_embarazo_landing.jpg");
-    background-size: cover;
-    background-attachment: fixed;
-    height: 480px;
-    margin:-8px;
+.covid-symptoms{
+    padding: 26px;
+    margin:28px;
+    text-align: left;
+    line-height: 2rem;
+    font-size: 18px;
 }
-.parallax2{
-    background: url("https://mypvhc.com/wp-content/uploads/2016/01/shutterstock_150470870.jpg");
-    background-size: cover;
-    background-attachment: fixed;
-    height: 480px;
-    margin:-8px;
+.covid_symptns1{
+    margin-top: 18px;
 }
-.parallax3{
-    background: url("https://medlineplus.gov/images/Hyperthyroidism_share.jpg");
-    background-size: cover;
-    background-attachment: fixed;
-    height: 450px;
-    margin:-8px;
+.symptons_li{
+    margin-left: 18px;
 }
- .parallax4{
-    background: url("https://images.ctfassets.net/4f3rgqwzdznj/7hpXwvhLBwzp2qki3FsuHu/54cf73580a5a6055271efb2ec746d03c/thyroid_ultrasound-1280924819.jpg");
-     background-size: cover;
-    background-attachment: fixed;
-    height: 480px;
-    margin:-8px;
+.prevention{
+    padding: 26px;
+    margin:28px;
+    text-align: left;
+    line-height: 2rem;
+    font-size: 18px;
 }
-
-/* .parallax5{
-    background: url("https://www.brown.edu/sites/default/files/styles/wide_sml/public/2022-07/AdobeStock_387477869_0.jpeg?h=11470751&itok=g1TNfrdU");
-    background-size: cover;
-    background-attachment: fixed;
-    height: 450px;
-    margin:-8px;
-} */ 
-.treatment ul{
-    list-style-type:none;
+.prevention_1{
+    margin-top: 18px;
 }
-/* .hivsymptons{
-    line-height: 0.5rem;
-} */
+.info_p1{
+    font-size: 20px;
+    padding-bottom: 20px;
+}
+marquee{
+    color: red;
+}

@@ -1,65 +1,58 @@
+
 *{
-    line-height: 1.8rem;
+    margin: 0;
+    padding: 0;
 }
-h1,h2,h3,h4{
+h1{
     text-align: center;
-    line-height: 1.6rem;
-    color: brown;
 }
-p{
+img{
+    opacity: 0.8;
+    margin-top: 20px;
+    height: 30%;
+}
+.covid{
+    margin-top: 20px;
+    
+}
+.covid-info{
+    padding: 26px;
+    margin:28px;
+    text-align: left;
     line-height: 2rem;
+    font-size: 18px;
 }
 h2{
-    line-height: 1.5rem;
+    text-align: center;
 }
-.parallax1{
-    background: url("https://c1.wallpaperflare.com/preview/809/782/364/sadness-depressed-woman-girl.jpg");
-    background-size: cover;
-    background-attachment: fixed;
-    height: 480px;
-   
+.covid-symptoms{
+    padding: 26px;
+    margin:28px;
+    text-align: left;
+    line-height: 2rem;
+    font-size: 18px;
 }
-.parallax2{
-    background: url("https://akpsi.org/wp-content/uploads/2020/08/AdobeStock_237753910-scaled.jpeg");
-    background-size: cover;
-    background-attachment: fixed;
-    height: 480px;
+.covid_symptns1{
+    margin-top: 18px;
+}
+.symptons_li{
+    margin-left: 18px;
+}
+.prevention{
+    padding: 26px;
+    margin:28px;
+    text-align: left;
+    line-height: 2rem;
+    font-size: 18px;
+}
+.prevention_1{
+    margin-top: 18px;
+}
+.info_p1{
+    font-size: 20px;
+    padding-bottom: 20px;
+}
+marquee{
+    color: red;
+}
 
-}
-.parallax3{
-    background: url("https://images.hindustantimes.com/img/2022/03/01/1600x900/FMOCn9rXEAgvEJy_1646124405101_1646124455411.jpg");
-    background-size: cover;
-    background-attachment: fixed;
-    height: 450px;
-   
-}
-.parallax4{
-    background: url("https://i0.wp.com/psych2go.net/wp-content/uploads/2019/08/art-beautiful-colors-2697754.jpg?fit=640%2C427&ssl=1");
-     background-size: cover;
-    background-attachment: fixed;
-    height: 480px;
-   
-}
-.parallax5{
-    background: url("https://highfocuscenters.pyramidhealthcarepa.com/wp-content/uploads/2021/05/patient-in-treatment-for-depression.jpg");
-    background-size: cover;
-    background-attachment: fixed;
-    height: 480px;
-   
-}
-.parallax6{
-    background: url("https://successtms.com/wp-content/uploads/2019/01/depression_relapse_TMS-3.png");
-    background-size: cover;
-    background-attachment: fixed;
-    height: 480px;
-   
-}
-/* .treatment ul{
-    list-style-type:none;
-}  */
-/* .hivsymptons{
-    line-height: 0.5rem;
-} */
-.types ul{
-    line-height: 7rem;
-}
