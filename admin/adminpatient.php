@@ -129,12 +129,21 @@ if (isset($_GET['delete'])) {
                                 <th>DOB</th>
                                 <th>Phone No.</th>
                                 <th>Email Id</th>
+                                <th>Subscription</th>
                                 <th>Delete</th>
                             </tr>
                         </thead>
                         <?php
                         $result = mysqli_query($con, "SELECT * FROM patient");
                         while ($patient = mysqli_fetch_array($result)) {
+                            $result5 = mysqli_query($con, "SELECT * FROM subscription WHERE userid = '" . $patient['icPatient'] ."'");
+                            $num = mysqli_num_rows($result5);
+                            if($num==1){
+                                $subscription = "Subscribed";
+                            }
+                            else{
+                                $subscription = "Not Subscribed";
+                            }
                             echo "<tbody>";
                             echo "<tr>";
                             echo "<td>" . $patient['icPatient'] . "</td>";
@@ -142,6 +151,7 @@ if (isset($_GET['delete'])) {
                             echo "<td>" . $patient['patientDOB'] . "</td>";
                             echo "<td>" . $patient['patientPhone'] . "</td>";
                             echo "<td>" . $patient['patientEmail'] . "</td>";
+                            echo "<td>" . $subscription . "</td>";
                             echo "<form method='POST' action=deleteschedule.php>";
                             echo "<td class='text-center'><a href='adminpatient.php?delete=" . $patient['icPatient'] . "'id='d" . $patient['icPatient'] . "' class='delete'><span  data-feather='trash' aria-hidden='true'></span></a></td>";
                         }
