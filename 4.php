@@ -6,11 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HIV</title>
     <link rel="stylesheet" href="hiv.css">
-    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
     <link rel="icon" href="logo-removebg-preview.png">
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-<?php include 'partials/_dbconnect.php'; ?>
+    <?php include 'partials/_dbconnect.php'; ?>
     <?php include 'partials/_header.php'; ?>
     <div>
         <div class="hiv">
@@ -23,16 +23,19 @@
                 Acquired immunodeficiency syndrome (AIDS) is a chronic, potentially life-threatening condition caused by the human immunodeficiency virus (HIV)
                 HIV is a sexually transmitted infection (STI). It can also be spread by contact with infected blood and from illicit injection drug use or sharing needles. It can also be spread from mother to child during pregnancy, childbirth or breastfeeding.
                 There's no cure for HIV/AIDS, but medications can control the infection and prevent progression of the disease. Antiviral treatments for HIV have reduced AIDS deaths around the world, and international organizations are working to increase the availability of prevention measures and treatment in resource-poor countries.
+    
             </p>
         </div>
         <div class="parallax2"></div>
         <div class="hivsymptons">
             <h3>
                 Symptoms :
+
             </h3>
             <ol>
                 <li>
                     <b>Primary infection (Acute HIV)</b>
+                    
                     <p>Some people infected by HIV develop a flu-like illness within <b>2 to 4 weeks after the virus enters the body</b>. This illness, known as primary (acute) HIV infection, may last for a few weeks. Possible signs and symptoms include: Fever.</p>
                 </li>
             </ol>
@@ -96,11 +99,11 @@
                 </div>
                 <div class="aids">
                     <h3> Progression to AIDS</h3>
-                    <p style="margin-left: 20px;">When AIDS occurs, your immune system has been severely damaged. You'll be more likely to develop diseases that wouldn't usually cause illness in a person with a healthy immune system. These are called opportunistic infections or opportunistic cancers.</p>
+                    <p>When AIDS occurs, your immune system has been severely damaged. You'll be more likely to develop diseases that wouldn't usually cause illness in a person with a healthy immune system. These are called opportunistic infections or opportunistic cancers.</p>
 
                 </div>
                 <div class="aids-symptoms">
-                    <h2 style="margin-left: 20px;">
+                    <h2>
                         The signs and symptoms of some of these infections may include:
                     </h2>
                     <ul>
@@ -139,12 +142,12 @@
                     <div class="parallax6"></div>
                     <div class="treatment">
                         <h3>Treatment</h3>
-                        <p style="margin: 0px 20px;">Currently, there's no cure for HIV/AIDS. Once you have the infection, your body can't get rid of it. However, there are many medications that can control HIV and prevent complications. These medications are called antiretroviral therapy (ART). Everyone diagnosed with HIV should be started on ART, regardless of their stage of infection or complications.
+                        <p>Currently, there's no cure for HIV/AIDS. Once you have the infection, your body can't get rid of it. However, there are many medications that can control HIV and prevent complications. These medications are called antiretroviral therapy (ART). Everyone diagnosed with HIV should be started on ART, regardless of their stage of infection or complications.
                         </p>
-                        <p style="margin: 0px 20px;">
+                        <p>
                             <b>ART is usually a combination of two or more medications from several different drug classes.</b> This approach has the best chance of lowering the amount of HIV in the blood. There are many ART options that combine multiple HIV medications into one pill, taken once daily.
                         </p>
-                        <p style="margin: 0px 20px;">
+                        <p>
                             <b>Treatment side effects can include</b>
                         </p>
                         <ul>
