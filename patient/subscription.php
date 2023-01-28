@@ -108,7 +108,7 @@ date_default_timezone_set("Asia/Calcutta");
                 <h2 class="my-4"> <?php echo $userRow['patientFirstName']; ?> <?php echo $userRow['patientLastName']; ?>. View Your Subscription information here!</h2>
                 
                <?php
-            $res1 = mysqli_query($con, "SELECT * FROM subscription WHERE userid=" . $usersession);
+            $res1 = mysqli_query($con, "SELECT *,30 - (DATEDIFF(CURDATE(),dos)+1) AS diff FROM subscription WHERE userid=" . $usersession);
             $numrows = mysqli_num_rows($res1);
             if ($numrows == 1){
                 $userRow1 = mysqli_fetch_array($res1, MYSQLI_ASSOC);
@@ -136,17 +136,14 @@ date_default_timezone_set("Asia/Calcutta");
                    <td>Free Appointments allowed </td>
                    <td>'. $userRow1['freeapt'].'</td>
                  </tr>
-                 <tr>
-                   <td>Free Appointments available</td>
-                   <td>'. $userRow1['aptleft'].' </td>
-                 </tr>
-                 <tr>
-                   <td>Questions asked </td>
-                   <td>'. $userRow1['quesleft'].'</td>
-                 </tr>
+                 
                  <tr>
                  <td>Questions allowed </td>
                  <td>'. $userRow1['ques'].'</td>
+                 <tr>
+                 <td>Days Left </td>
+                 <td>'. $userRow1['diff'].'</td>
+                 
                </tr>
                  
                </tbody>

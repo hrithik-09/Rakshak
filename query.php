@@ -78,7 +78,6 @@
             <hr class="my-4">
             <p>This is a medical advisory page. Spam / Advertising / Self-promote is not allowed. Do not post “wrong”
                 information. Remain respectful of other members at all times.</p>
-            <a class="btn btn-secondary btn-lg" href="#" role="button">Learn more</a>
         </div>
     </div>
 
@@ -89,7 +88,20 @@
         $sql = "SELECT * FROM `subscription` WHERE userid='$sno1'"; 
         $result = mysqli_query($conn, $sql);
         $numRows = mysqli_num_rows($result);
-        if ($numRows>0) {
+        $no=mysqli_fetch_assoc($result);
+        if ($no['planid']==1) {
+            $q=1;
+        }
+        else if ($no['planid']==2) {
+            $q=5;
+        }
+        else if ($no['planid']==3) {
+            $q=12;
+        }
+        $sql2 = "SELECT * FROM `threads` WHERE thread_user_id='$sno1'"; 
+        $result2 = mysqli_query($conn, $sql2);
+        $numRows2 = mysqli_num_rows($result2);
+        if ($numRows>0 && $numRows2<$q) {
             
             echo '<div class="container">
             <h1 class="py-2">Ask you Problem</h1> 
@@ -124,6 +136,17 @@
                     <button type="submit" class="btn btn-success my-2">Submit</button>
                     </form>
                     </div>';
+                }
+                else if ($numRows>0)
+                {
+    
+                    echo '
+                        <div class="container">
+                        <h1 class="py-2">Sorry !!! </h1> 
+                        <p class="lead">You have reached your query limit of this month.</p>
+                        <p class="lead">You have read query posted by others or response to your asked query.</p>
+                        </div>
+                        ';
                 }
                 else{
                     echo '

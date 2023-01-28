@@ -55,6 +55,12 @@
         $sno = $_POST['sno']; 
         $sql = "INSERT INTO `threads` (`thread_title`, `thread_desc`, `thread_cat_id`, `thread_user_id`,`departmentName`, `timestamp`) VALUES ( '$th_title', '$th_desc', '$id', '$sno','$th_dept', current_timestamp())";
         $result = mysqli_query($conn, $sql);
+        $sno = $_POST['sno']; 
+        if ($result) {
+            # code...
+            $sql2 = "UPDATE subscription SET quesleft=quesleft- 1 WHERE userid='$sno' AND quesleft<>0";
+            $result2 = mysqli_query($conn, $sql2);
+        }
         $showAlert = true;
         if($showAlert){
             echo '<div class="alert alert-success alert-dismissible fade show mb-0" role="alert">

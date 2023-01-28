@@ -111,14 +111,14 @@ $uid=$_SESSION['sno'];
      elseif($response['purpose']=="Individual")
      {
        $planid=1;
-       $freeapt=0;
+       $freeapt=1;
        $ques=1;
      }
      elseif($response['purpose']=="Family")
      {
        $planid=3;
-       $freeapt=0;
-       $ques=1;
+       $freeapt=5;
+       $ques=12;
      }
     $status=$_GET['payment_status'];
     if($status=='Failed')
@@ -126,7 +126,7 @@ $uid=$_SESSION['sno'];
       else
       {
         echo 'Thank You for purchasing our subscription </h1>';
-        $sql = "INSERT INTO `subscription` ( `userid`, `pid`, `planid`,`dos`,`freeapt`,`ques`) VALUES ('$uid', '$payid2','$planid',current_timestamp(),'$freeapt','$ques')";
+        $sql = "INSERT INTO `subscription` ( `userid`, `pid`, `planid`,`dos`,`freeapt`,`ques`,`aptleft`,`quesleft`) VALUES ('$uid', '$payid2','$planid',current_timestamp(),'$freeapt','$ques','$freeapt','$ques')";
         $result = mysqli_query($conn, $sql);
       }
    
@@ -144,7 +144,7 @@ $uid=$_SESSION['sno'];
     </tr>
     <tr>
       <td>Payment Id: </td>
-      <td><?php echo $payid;?></td>
+      <td><?php echo $payid2;?></td>
     </tr>
     <tr>
       <td>Payee Name</td>
