@@ -144,7 +144,7 @@
                         <div class="container">
                         <h1 class="py-2">Sorry !!! </h1> 
                         <p class="lead">You have reached your query limit of this month.</p>
-                        <p class="lead">You have read query posted by others or response to your asked query.</p>
+                        <p class="lead">You can read query posted by others or responses to your asked query.</p>
                         </div>
                         ';
                 }

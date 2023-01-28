@@ -16,16 +16,16 @@
         <img src="https://healthmatters.nyp.org/wp-content/uploads/2020/03/Article-hero.jpg" alt="covid" width="100%" height="100%">
         <div id="cooo">
             <div class="covid-info">
-                <p align="justify"  class="info-1">Coronavirus disease (COVID-19) is an infectious disease caused by the SARS-CoV-2 virus.</p><br>
+                <p align="justify"  class="info-1">Coronavirus disease (<b> COVID-19 </b>) is an infectious disease caused by the SARS-CoV-2 virus.</p><br>
                 <p align="justify" class="info-2">Most people infected with the virus will experience mild to moderate respiratory illness and recover without requiring special treatment. However, some will become seriously ill and require medical attention. Older people and those with underlying medical conditions like cardiovascular disease, diabetes, chronic respiratory disease, or cancer are more likely to develop serious illness. Anyone can get sick with COVID-19 and become seriously ill or die at any age. </p><br>
-                <p align="justify" class="info-4">The virus can spread from an infected person’s mouth or nose in small liquid particles when they cough, sneeze, speak, sing or breathe. These particles range from larger respiratory droplets to smaller aerosols. It is important to practice respiratory etiquette, for example by coughing into a flexed elbow, and to stay home and self-isolate until you recover if you feel unwell.</p><br>
+                <p align="justify" class="info-4"><b> The virus can spread from an infected person’s mouth or nose in small liquid particles when they cough, sneeze, speak, sing or breathe. These particles range from larger respiratory droplets to smaller aerosols. It is important to practice respiratory etiquette, for example by coughing into a flexed elbow, and to stay home and self-isolate until you recover if you feel unwell.</b></p><br>
             </div>
 
         </div>
         <div class="covid-symptoms">
             <h2>KNOW YOUR SYMPTOMS AND CURE THEM FAST!!</h2>
             <div id="covid_symptns1">
-                <p align="justify"class="symptoms">COVID-19 affects different people in different ways. Most infected people will develop mild to moderate illness and recover without hospitalization.</p>
+                <p align="justify"class="symptoms"> <b> COVID-19 </b>affects different people in different ways. Most infected people will develop mild to moderate illness and recover without hospitalization.</p>
                 <p align="justify" class="list_1"><b>Most common symptoms:</b></p>
                 <ul class="symptons_li">
                     <li>fever</li>
