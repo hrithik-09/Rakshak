@@ -76,10 +76,10 @@
     
 <main>
 
-  <div class="px-4 py-5 my-2 text-center">
+  <div class="px-4 py-5 my-2">
     <img class="d-block mx-auto mb-4" src="../img/logo.png" alt="" width="150" height="150">
 
-    <h1 class="display-5 fw-bold">
+    <h1 class="display-5 fw-bold text-center mb-4">
     <?php 
     include_once '../assets/conn/dbconnect.php';
         $hid=$_GET['hid'];
