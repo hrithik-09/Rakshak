@@ -152,7 +152,7 @@ date_default_timezone_set("Asia/Calcutta");
                </tbody>
              </table>';
             } else {
-               echo '<h3>You are not a subscribed member! </h3>';
+               echo '<h3>You are not a subscribed member! <a href="/rakshak/subscription.php" class="btn btn-outline-primary me-4">Subscribe Now</a></h3>';
             }
           
  

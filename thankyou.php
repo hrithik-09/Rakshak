@@ -85,17 +85,12 @@ $uid=$_SESSION['sno'];
     <img class="d-block mx-auto mb-4" src="img/logo.png" alt="" width="150" height="150">
 
     <h1 class="display-5 fw-bold">
-    <?php 
-      $status=$_GET['payment_status'];
-      if($status=='Failed')
-        echo 'Oops!! Transaction Failed..Try Again </h1>';
-        else
-        echo 'Thank You for purchasing our subscription </h1>';
-    ?>
+    
     <?php
     include 'instamojo/Instamojo.php';
     $api = new Instamojo\Instamojo('test_e21d0a5d3ec617ae448058512e0', 'test_ef151341507d0d4a62bffaa9dd8','https://test.instamojo.com/api/1.1/');
     $payid=$_GET['payment_request_id'];
+    $payid2=$_GET['payment_id'];
     try {
         $response = $api->paymentRequestStatus($payid);
     }
@@ -104,27 +99,38 @@ $uid=$_SESSION['sno'];
     }
     ?>
     <?php
-    $planid=0;
-    $freeapt=0;
-    $ques=0;
-    if($response['purpose']=="Basic")
-    {
-      $planid=1;
-      $freeapt=0;
-      $ques=1;
-    }
-    elseif($response['purpose']=="Individual")
-    {
-      $planid=1;
-      $freeapt=0;
-      $ques=1;
-    }
-    elseif($response['purpose']=="Family")
-    {
-      $planid=3;
-    }
-    $sql = "INSERT INTO `subscription` ( `userid`, `pid`, `planid`,`dos`,`freeapt`,`ques`) VALUES ('$uid', '$payid','$planid',current_timestamp())";
-    $result = mysqli_query($conn, $sql);
+     $planid=0;
+     $freeapt=0;
+     $ques=0;
+     if($response['purpose']=="Basic")
+     {
+       $planid=1;
+       $freeapt=0;
+       $ques=1;
+     }
+     elseif($response['purpose']=="Individual")
+     {
+       $planid=1;
+       $freeapt=0;
+       $ques=1;
+     }
+     elseif($response['purpose']=="Family")
+     {
+       $planid=3;
+       $freeapt=0;
+       $ques=1;
+     }
+    $status=$_GET['payment_status'];
+    if($status=='Failed')
+      echo 'Oops!! Transaction Failed..Try Again </h1>';
+      else
+      {
+        echo 'Thank You for purchasing our subscription </h1>';
+        $sql = "INSERT INTO `subscription` ( `userid`, `pid`, `planid`,`dos`,`freeapt`,`ques`) VALUES ('$uid', '$payid2','$planid',current_timestamp(),'$freeapt','$ques')";
+        $result = mysqli_query($conn, $sql);
+      }
+   
+
     
     ?>
     <div class="col-lg-6 mx-auto">

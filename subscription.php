@@ -88,9 +88,9 @@
               <h4 class="my-0 fw-normal">Family</h4>
             </div>
             <div class="card-body">
-              <h1 class="card-title pricing-card-title">Rs. 500<small class="text-muted fw-light">/yr</small></h1>
+              <h1 class="card-title pricing-card-title">Rs. 500<small class="text-muted fw-light">/mo</small></h1>
               <ul class="list-unstyled mt-3 mb-4">
-                <li>10 questions per month</li>
+                <li>10 questions month</li>
                 <li>5 free appointments</li>
                 <li>Phone and email support</li>
               </ul>

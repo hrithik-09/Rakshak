@@ -21,7 +21,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             $numrows=mysqli_num_rows($result2);
             $userrows=mysqli_fetch_assoc($result2);
             if ($numrows==1) {
-                if (($userrows['planid']==1 && $userrows['diff']>30) || ($userrows['planid']==2 && $userrows['diff']>30) || ($userrows['planid']==3 && $userrows['diff']>365)) {
+                if (($userrows['planid']==1 && $userrows['diff']>30) || ($userrows['planid']==2 && $userrows['diff']>30) || ($userrows['planid']==3 && $userrows['diff']>30)) {
                     mysqli_query($conn, "DELETE FROM subscription WHERE userid = '$uid'");
                 }
             }
