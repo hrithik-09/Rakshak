@@ -89,14 +89,18 @@
         $result = mysqli_query($conn, $sql);
         $numRows = mysqli_num_rows($result);
         $no=mysqli_fetch_assoc($result);
-        if ($no['planid']==1) {
-            $q=1;
-        }
-        else if ($no['planid']==2) {
-            $q=5;
-        }
-        else if ($no['planid']==3) {
-            $q=12;
+        if(isset($no['planid']))
+        {
+
+            if ($no['planid']==1) {
+                $q=1;
+            }
+            else if ($no['planid']==2) {
+                $q=5;
+            }
+            else if ($no['planid']==3) {
+                $q=12;
+            }
         }
         $sql2 = "SELECT * FROM `threads` WHERE thread_user_id='$sno1'"; 
         $result2 = mysqli_query($conn, $sql2);
