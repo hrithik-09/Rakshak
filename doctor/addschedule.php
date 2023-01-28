@@ -136,7 +136,7 @@ if (isset($_POST['submit'])) {
                                             <tr>
                                                 <td>Schedule Date:</td>
                                                 <td><input type="date" class="form-control" name="date"
-                                                        min=<?php echo date("Y-m-d")?> /></td>
+                                                        min=<?php echo date("Y-m-d",strtotime('+1 days'))?> /></td>
                                             </tr>
                                             <tr>
                                                 <td>Time slot</td>
